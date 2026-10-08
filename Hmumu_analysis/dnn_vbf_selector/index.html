@@ -1,0 +1,1545 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://valeriadamante.github.io/Hmumu_analysis/dnn_vbf_selector/">
+      
+      
+        <link rel="prev" href="../status/">
+      
+      
+        <link rel="next" href="../ewkz_fit_motivation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>DNN and VBF selector - H→μμ Analysis Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-analysis-dnn-and-the-vbf-selector" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="H→μμ Analysis Documentation" class="md-header__button md-logo" aria-label="H→μμ Analysis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            H→μμ Analysis Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DNN and VBF selector
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/valeriadamante/Hmumu_analysis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    valeriadamante/Hmumu_analysis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="H→μμ Analysis Documentation" class="md-nav__button md-logo" aria-label="H→μμ Analysis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    H→μμ Analysis Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/valeriadamante/Hmumu_analysis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    valeriadamante/Hmumu_analysis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework guide (English)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guida al framework (italiano)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventario_istogrammi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventario istogrammi e plot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Status of the studies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNN and VBF selector
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNN and VBF selector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two networks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results to date
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fit-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fit plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-fits-with-the-dnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H→μμ fits with the DNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ewk-z-fits-with-the-vbf-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EWK Z fits with the VBF selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ewkz_fit_motivation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why the EWK Z fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SYSTEMATIC_CORRELATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systematic correlations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sync
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections and payloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/pisa_vbfh_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pisa VBFH 2024 synchronization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/dy_reweighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DY reweighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two networks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results to date
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fit-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fit plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-fits-with-the-dnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H→μμ fits with the DNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ewk-z-fits-with-the-vbf-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EWK Z fits with the VBF selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="the-analysis-dnn-and-the-vbf-selector">The analysis DNN and the VBF selector<a class="headerlink" href="#the-analysis-dnn-and-the-vbf-selector" title="Permanent link">&para;</a></h1>
+<p><em>7 October 2026.</em> The full note, with figures, is the PDF
+<a href="../dnn_vbf_selector.pdf"><code>dnn_vbf_selector.pdf</code></a>. Its LaTeX source is in
+<a href="dnn_vbf_selector/"><code>dnn_vbf_selector/</code></a>; to rebuild it, run
+<code>pdflatex dnn_vbf_selector.tex</code> twice in that folder. This page summarises the
+note and keeps the fit plan in a form that is easy to update.</p>
+<h2 id="the-two-networks">The two networks<a class="headerlink" href="#the-two-networks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>analysis DNN (<code>DNN_NNOutput</code>)</th>
+<th>VBF selector (<code>VBFSel_NNOutput</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>question</td>
+<td>is it H→μμ?</td>
+<td>is it a VBF topology?</td>
+</tr>
+<tr>
+<td>signal</td>
+<td>VBF H + ggH</td>
+<td>VBF H + EWK Zjj</td>
+</tr>
+<tr>
+<td>background</td>
+<td>DY, EWK Z, tt̄, VV (training)</td>
+<td>DY, ggH, tt̄, VV</td>
+</tr>
+<tr>
+<td>training region</td>
+<td>cut-based VBF category, Signal_Fit (115–135 GeV)</td>
+<td><code>baseline_ge2J</code>, Z + H sidebands + Signal_Fit (<code>inclusive_regions</code>)</td>
+</tr>
+<tr>
+<td>dimuon mass</td>
+<td>input (<code>m_mumu</code>)</td>
+<td>not used</td>
+</tr>
+<tr>
+<td>inputs</td>
+<td>32: muons, dimuon, Collins–Soper angles, tag jets, soft activity, <code>era_code</code></td>
+<td>24: four leading jets (pT, η, φ, QvG, CvL), pT(μμ), N jets, soft activity</td>
+</tr>
+<tr>
+<td>network</td>
+<td>32→86×4→1, ReLU, no regularisation</td>
+<td>24→100×4→50×2→1, BatchNorm + ReLU + dropout 0.1</td>
+</tr>
+<tr>
+<td>training</td>
+<td>2022–2025, abs weights, classes equalised, 4 folds</td>
+<td>2022–2026, signed weights, background capped per process/region/era, classes equalised, 4 folds</td>
+</tr>
+<tr>
+<td>optimiser</td>
+<td>Adam lr 1e-3, batch 10k, <code>epochs = 1</code> in the deployed config</td>
+<td>Adam lr 5e-3, batch 10k, early stopping (patience 10)</td>
+</tr>
+<tr>
+<td>payload</td>
+<td><code>common/updated_DNN_{configs,models}</code></td>
+<td><code>common/vbfsel_{configs,models}</code></td>
+</tr>
+<tr>
+<td>typical AUC</td>
+<td>0.89–0.91 (SR, VBF)</td>
+<td>0.90 (Z sideband), 0.82 (H sideband, SR)</td>
+</tr>
+<tr>
+<td>use</td>
+<td>fit variable of the H→μμ fit (SR + H sideband, 14 bins per era)</td>
+<td>EWK Z fit in the sidebands; possible alternative VBF category</td>
+</tr>
+</tbody>
+</table>
+<p>Both networks are applied in the framework in the same way:
+- each event is scored by model <code>FullEventId % 4</code>, so never by a model that
+  saw it in training;
+- the input standardisation is inside the ONNX graph;
+- the score is re-evaluated for every JES, JER and muon scale/resolution
+  variation (<code>dnn_application.ApplyDNNVariations</code>, since 29 September 2026).</p>
+<p>The production DNN was trained outside this repository (A. Yeagle,
+<code>OGDNN_big_run</code>). The VBF selector was trained here, in
+<a href="../studies/vbf_selector/README.md"><code>studies/vbf_selector/</code></a>.</p>
+<h2 id="results-to-date">Results to date<a class="headerlink" href="#results-to-date" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>H→μμ, DNN fit.</strong> Expected significance <strong>2.10σ</strong> (toysFreq Asimov, SR + H
+  sideband, 7 eras, DY <code>lnn</code>), 2.48 with statistics only. These numbers use the
+  old <code>dnn_vbf_weighted</code> templates, whose jet and muon systematics are invalid,
+  and have to be redone. Details: <a href="../combine/RESULTS.md">combine/RESULTS.md</a>.</li>
+<li><strong>EWK Z normalisation.</strong> If it is left free, the expected significance drops
+  from 2.14 to 1.63: this is the reason for the VBF selector
+  (<a href="../ewkz_fit_motivation/">why</a>).</li>
+<li><strong>VBF split CC/CF/FF.</strong> +1.8% (2.366 → 2.410), without shape systematics.</li>
+<li><strong>VBF selector.</strong></li>
+<li>AUC 0.90 in the Z sideband and 0.82 in the H sideband and SR; about 0.855
+    in 2022–23 and 0.815 in 2024–26, which follows the horn veto.</li>
+<li>SHAP: it is a classifier of the tag-jet kinematics.</li>
+<li>As a VBF category (counting): 1.105 against 1.014 for the cut-based
+    category; the gain comes from the ggF side.</li>
+<li><strong>EWK Z in the sidebands.</strong> r = <strong>1.051 ± 0.033</strong> (DY Hard/PU, no shape
+  systematics). This is not yet a measurement: the eras range from 0.62 to 1.27,
+  the Z and H sidebands give 1.02 and 1.70, and the DY shape is mismodelled.</li>
+</ul>
+<h2 id="fit-plan">Fit plan<a class="headerlink" href="#fit-plan" title="Permanent link">&para;</a></h2>
+<p>The state is as of 8 October 2026, 00:45.</p>
+<ul>
+<li><strong>Order.</strong> Everything is done inclusive first (VBF category not split). After
+  a checkpoint, the CC/CF/FF split is run.</li>
+<li><strong>Templates.</strong> The DNN fit templates are <code>dnn_vbf_eta_regions_syst</code>, with
+  <code>incl</code> for the inclusive category and <code>CC</code>/<code>CF</code>/<code>FF</code> for the split.</li>
+<li><strong>Automation.</strong> <code>combine/results_fit_matrix/logs/chain_20261008e.sh</code> (replaces
+  <code>chain_20261007d.sh</code>): phase 1 rebuilds and validates the 2022-2025 templates and
+  runs D7, D8, D12, V3 and V4 on 2022-2025; phase 2, when the 2026 MC is redone,
+  repeats everything on the seven eras.  Fits run only if
+  <code>tools/validate_variations.py</code> finds no critical flag.</li>
+<li><strong>2026 muon scale factors.</strong> The 2026 skims have none: since 8 October they are
+  the 2025 ones, computed at histogram time (<code>maincfg.yaml</code> <code>muon_sf_era</code>), and the
+  2026 MC of the fit campaigns is being redone.</li>
+<li><strong>CC/CF/FF campaigns.</strong> Their 10 386 queued jobs were removed on 8 October;
+  <code>resubmit_eta_campaigns.sh</code> resubmits them (missing outputs only) when the chain
+  has finished.</li>
+<li><strong>DNN fit order.</strong> Significance and limits of every variant and DY model first
+  (<code>combine/DNN_FIT_RESULTS_&lt;tag&gt;.md</code>), then the VBF-selector fits, then impacts,
+  scans and the fit matrix (post-fit plots in the SR (blinded above 0.8) and in the H sideband).</li>
+</ul>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>campaign</th>
+<th>content</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnn_vbf_weighted</code></td>
+<td>DNN, VBF, all systematics</td>
+<td>invalid (score not re-evaluated for JES/JER/muon scale)</td>
+</tr>
+<tr>
+<td><code>dnn_vbf_eta_regions</code></td>
+<td>DNN, incl/CC/CF/FF, Central</td>
+<td>done</td>
+</tr>
+<tr>
+<td><code>dnn_vbf_eta_regions_syst</code></td>
+<td>DNN, incl/CC/CF/FF, all systematics, Hard/PU</td>
+<td>in progress: 2022-2025 being rebuilt and validated (phase 1); 2026 MC redone with the 2025 muon SFs (phase 2)</td>
+</tr>
+<tr>
+<td><code>dnn_vbf</code></td>
+<td>DNN, VBF, five regions, all systematics (plots)</td>
+<td>in progress; 2026 MC redone</td>
+</tr>
+<tr>
+<td><code>vbf_selector_ewkz</code></td>
+<td>selector + 24 inputs, Z/H sidebands, all systematics</td>
+<td>done for 2022-2025 (merged and checked 7 October 21:20); 2026 MC redone with the 2025 muon SFs</td>
+</tr>
+<tr>
+<td><code>vbf_selector_ewkz_dyincl</code></td>
+<td>inclusive DY (M-50) in the H sideband, all systematics</td>
+<td>in progress (2024 first)</td>
+</tr>
+<tr>
+<td><code>vbf_selector_ewkz_eta</code></td>
+<td>selector, VBF incl/CC/CF/FF, all systematics</td>
+<td>queued jobs removed; resubmitted when the chain ends</td>
+</tr>
+<tr>
+<td><code>vbf_eta_regions_syst</code></td>
+<td>all variables, incl/CC/CF/FF, all systematics</td>
+<td>queued jobs removed; resubmitted when the chain ends</td>
+</tr>
+</tbody>
+</table>
+<h3 id="h-fits-with-the-dnn">H→μμ fits with the DNN<a class="headerlink" href="#h-fits-with-the-dnn" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>fit</th>
+<th>systematics</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>SR + HSB and SR only, 4 DY models, pre-fit and toysFreq, each era and all eras</td>
+<td>full, old templates</td>
+<td>done, invalid (2.102)</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>6 eras, one-line <code>--toysFreq</code></td>
+<td>full, old templates</td>
+<td>done, invalid (superseded)</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>DY scale V shape-only</td>
+<td>full, old templates</td>
+<td>done, invalid (2.172 pre-fit)</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>EWK Z normalisation test</td>
+<td>full, old templates</td>
+<td>done (2.14 → 1.63)</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>data fit of the Z and H sidebands, SR masked</td>
+<td>full, old templates</td>
+<td>done</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>inclusive, Central cards (stat + lumi + MC stat)</td>
+<td>none</td>
+<td>done (2.350 pre-fit / 2.366 toysFreq)</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>SR + HSB and SR only, 4 DY models, significance, limits, impacts, scans (<code>results_2022_2025/</code>, then <code>results_7eras/</code>)</td>
+<td>full, new templates</td>
+<td><strong>missing</strong>, runs in the chain (phase 1, phase 2)</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>fit matrix, each era and all eras, impacts on every fit, post-fit in the SR (blinded above 0.8) and in the H sideband (<code>fit_matrix_2022_2025/</code>, then <code>fit_matrix_7eras/</code>)</td>
+<td>full, new templates</td>
+<td><strong>missing</strong>, runs in the chain</td>
+</tr>
+<tr>
+<td>D9</td>
+<td>stat-only and per-group breakdown</td>
+<td>—</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>D10</td>
+<td>CC/CF/FF, Central cards, pre-fit and toysFreq</td>
+<td>none</td>
+<td>done (+1.8%)</td>
+</tr>
+<tr>
+<td>D11</td>
+<td>CC/CF/FF with a free DY per era and η category</td>
+<td>none</td>
+<td>done (+1.9%)</td>
+</tr>
+<tr>
+<td>D12</td>
+<td>CC/CF/FF, 4 DY models, Hard/PU (<code>results_2022_2025/CCCFFF</code>, then <code>results_7eras/CCCFFF</code>)</td>
+<td>full, new templates</td>
+<td><strong>missing</strong>, runs in the chain</td>
+</tr>
+<tr>
+<td>D13</td>
+<td>CC/CF/FF fit matrix per era, impacts</td>
+<td>full, new templates</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>D14</td>
+<td>dedicated treatment of the FF high-score data/MC</td>
+<td>—</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>D15</td>
+<td>H→μμ card with the EWK Z constraint from V3</td>
+<td>full</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>D16</td>
+<td>retrained DNN (7 eras, with and without <code>m_mumu</code>)</td>
+<td>full</td>
+<td><strong>missing</strong> (training not started)</td>
+</tr>
+<tr>
+<td>D17</td>
+<td>DNN fit in the selector-defined VBF category</td>
+<td>full</td>
+<td><strong>missing</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ewk-z-fits-with-the-vbf-selector">EWK Z fits with the VBF selector<a class="headerlink" href="#ewk-z-fits-with-the-vbf-selector" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>fit</th>
+<th>systematics</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V0</td>
+<td>quick fit on the training tuples</td>
+<td>lumi + flat lnN</td>
+<td>done (0.997, superseded)</td>
+</tr>
+<tr>
+<td>V1</td>
+<td>campaign templates, <code>single</code>/<code>hard-pu</code>/<code>hard-pu-lnn</code>/<code>hard-pu1-pu2</code>, each era and all eras</td>
+<td>lumi + xsec + MC stat</td>
+<td>done (1.051 ± 0.033)</td>
+</tr>
+<tr>
+<td>V2</td>
+<td>fit matrix of V1 (Asimov and data, pulls, impacts)</td>
+<td>as V1</td>
+<td>done (expected 41.9 / 44.3, observed 45.5)</td>
+</tr>
+<tr>
+<td>V2b</td>
+<td>2024, preliminary merge, <code>baseline_ge2J</code> and VBF category, 4 DY models, limits</td>
+<td>full (no VBF H herwig, no private EWK)</td>
+<td>done: r = 0.98-1.04 (<code>baseline_ge2J</code>), 1.22-1.51 (VBF category); <code>combine/EWKZ_FIT_RESULTS.md</code></td>
+</tr>
+<tr>
+<td>V2c</td>
+<td>2024, final templates, with impacts</td>
+<td>full</td>
+<td>in progress</td>
+</tr>
+<tr>
+<td>V2d</td>
+<td>2024, inclusive DY in the H sideband</td>
+<td>full</td>
+<td>waits for <code>vbf_selector_ewkz_dyincl</code></td>
+</tr>
+<tr>
+<td>V2e</td>
+<td>binning scan, 2024, 6 binnings</td>
+<td>full</td>
+<td>in progress (<code>combine/VBFSEL_BINNING_SCAN.md</code>)</td>
+</tr>
+<tr>
+<td>V3</td>
+<td>2022-2025 then seven eras, 4 DY models, <code>baseline_ge2J</code> and VBF category, limits (<code>results_vbfsel_&lt;2022_2025|7eras&gt;_&lt;category&gt;</code>, cards on EOS <code>datacard_VBFSelector/</code>)</td>
+<td>full</td>
+<td><strong>missing</strong>, runs in the chain</td>
+</tr>
+<tr>
+<td>V4</td>
+<td>fit matrix of V3, impacts on every fit</td>
+<td>full</td>
+<td><strong>missing</strong>, runs in the chain</td>
+</tr>
+<tr>
+<td>V5</td>
+<td>data/MC of the score and of the 24 inputs with the systematic band</td>
+<td>full</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>V6</td>
+<td>selector templates per η class</td>
+<td>full</td>
+<td>in progress (histograms)</td>
+</tr>
+<tr>
+<td>V7</td>
+<td>EWK Z fit per η class</td>
+<td>full</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>V8</td>
+<td>selector performance and data/MC per η class</td>
+<td>—</td>
+<td><strong>missing</strong></td>
+</tr>
+<tr>
+<td>V9</td>
+<td>selector-defined VBF category with the DNN fit</td>
+<td>full</td>
+<td><strong>missing</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="order">Order<a class="headerlink" href="#order" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Rebuild and validate the inclusive templates.</li>
+<li>Run D7–D9.</li>
+<li>Run V3–V5.</li>
+<li>Checkpoint: report the inclusive results.</li>
+<li>Run D12–D14 and V6–V8.</li>
+<li>Run D15, then D16, D17 and V9.</li>
+</ol>
+<h3 id="open-decisions">Open decisions<a class="headerlink" href="#open-decisions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>2026: muon scale factors and the luminosity nuisance.</li>
+<li>Reference DY model: <code>lnn</code> for H→μμ, <code>hard-pu</code> for EWK Z.</li>
+<li>Whether to keep FF.</li>
+<li>Whether to remove <code>m_mumu</code> from the DNN.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

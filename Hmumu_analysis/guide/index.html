@@ -1,0 +1,3775 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://valeriadamante.github.io/Hmumu_analysis/guide/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../guida/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Framework guide (English) - H→μμ Analysis Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#framework-guide-from-nanoaod-to-combine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="H→μμ Analysis Documentation" class="md-header__button md-logo" aria-label="H→μμ Analysis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            H→μμ Analysis Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Framework guide (English)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/valeriadamante/Hmumu_analysis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    valeriadamante/Hmumu_analysis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="H→μμ Analysis Documentation" class="md-nav__button md-logo" aria-label="H→μμ Analysis Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    H→μμ Analysis Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/valeriadamante/Hmumu_analysis" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    valeriadamante/Hmumu_analysis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework guide (English)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework guide (English)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage locations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-era-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-era configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Skims
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Skims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-file-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 File lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Submit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validation-manifests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validation manifests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dy-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DY weights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Histograms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Histograms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-campaigns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Campaigns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-produce-and-validate-a-campaign-the-standard-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Produce and validate a campaign (the standard sequence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-output-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Output layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-physics-options-of-the-producer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Physics options of the producer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-one-off-histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 One-off histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-datacards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Datacards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Datacards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dnn-card-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 DNN card (H→μμ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-vbf-selector-cards-ewk-z-in-the-sidebands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 VBF-selector cards (EWK Z in the sidebands)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-normalisations-of-the-merged-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Normalisations of the merged processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Fits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Fits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-pre-fit-asimov-toysfreq-asimov-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Pre-fit Asimov, toysFreq Asimov, data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-significance-limits-impacts-scan-hmumu-combine-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Significance, limits, impacts, scan: ./hmumu combine fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-every-test-on-one-card-combinefit_suitepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Every test on one card: combine/fit_suite.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-the-fit-matrix-every-era-and-region-combination-every-dy-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 The fit matrix: every era and region combination, every DY model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-plain-combine-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Plain combine, by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-vbf-selector-the-ewk-z-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 VBF selector: the EWK Z fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recipes-case-by-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recipes, case by case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Plots
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-every-plot-of-a-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Every plot of a campaign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-one-region-chosen-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 One region, chosen samples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-systematic-shapes-sample-by-sample-and-source-by-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Systematic shapes, sample by sample and source by source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-prepost-fit-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Pre/post-fit plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-blinding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 Blinding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-reproduce-every-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 Reproduce every plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-chain-and-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Chain and status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Studies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-synchronisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Synchronisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-traps-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Traps and troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-where-things-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Where things are
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guida al framework (italiano)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventario_istogrammi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inventario istogrammi e plot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Results
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Status of the studies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dnn_vbf_selector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNN and VBF selector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ewkz_fit_motivation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why the EWK Z fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SYSTEMATIC_CORRELATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systematic correlations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sync
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections and payloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/pisa_vbfh_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pisa VBFH 2024 synchronization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync/dy_reweighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DY reweighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage locations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-era-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-era configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Skims
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Skims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-file-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 File lists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Submit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validation-manifests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validation manifests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dy-weights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. DY weights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Histograms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Histograms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-campaigns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Campaigns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-produce-and-validate-a-campaign-the-standard-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Produce and validate a campaign (the standard sequence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-output-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Output layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-physics-options-of-the-producer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Physics options of the producer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-one-off-histograms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 One-off histograms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-datacards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Datacards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Datacards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dnn-card-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 DNN card (H→μμ)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-vbf-selector-cards-ewk-z-in-the-sidebands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 VBF-selector cards (EWK Z in the sidebands)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-normalisations-of-the-merged-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Normalisations of the merged processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Fits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Fits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-pre-fit-asimov-toysfreq-asimov-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Pre-fit Asimov, toysFreq Asimov, data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-significance-limits-impacts-scan-hmumu-combine-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Significance, limits, impacts, scan: ./hmumu combine fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-every-test-on-one-card-combinefit_suitepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Every test on one card: combine/fit_suite.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-the-fit-matrix-every-era-and-region-combination-every-dy-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 The fit matrix: every era and region combination, every DY model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-plain-combine-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Plain combine, by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-vbf-selector-the-ewk-z-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 VBF selector: the EWK Z fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recipes-case-by-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Recipes, case by case
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Plots
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-every-plot-of-a-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Every plot of a campaign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-one-region-chosen-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 One region, chosen samples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-systematic-shapes-sample-by-sample-and-source-by-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Systematic shapes, sample by sample and source by source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-prepost-fit-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Pre/post-fit plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105-blinding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 Blinding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106-reproduce-every-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.6 Reproduce every plot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-chain-and-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Chain and status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Studies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-synchronisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Synchronisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-traps-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Traps and troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-where-things-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Where things are
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="framework-guide-from-nanoaod-to-combine">Framework guide: from NanoAOD to combine<a class="headerlink" href="#framework-guide-from-nanoaod-to-combine" title="Permanent link">&para;</a></h1>
+<p><em>Updated 2026-10-06.</em> One guide for the whole analysis, in the order the steps
+are run: setup, skims, validation, DY weights, histograms, plots, datacards
+and fits, with one recipe per case. Every command can be copied as it is,
+from the repository root, after <code>source env.sh</code>.</p>
+<p>The Italian version is <a href="../guida/">guida.md</a>; the two have the same sections.
+Results are not in this guide: they are in
+<a href="../status/">status.md</a> (all the studies), <a href="../combine/RESULTS.md"><code>combine/RESULTS.md</code></a>
+(DNN fit) and <a href="../combine/results_fit_matrix/SUMMARY.md"><code>combine/results_fit_matrix/SUMMARY.md</code></a>
+(fit matrix). Reference pages: <a href="../SYSTEMATIC_CORRELATIONS/">systematic correlations</a>,
+<a href="../ewkz_fit_motivation/">why the EWK Z fit</a>, <a href="../sync/dy_reweighting/">DY reweighting method</a>,
+<a href="../sync/">corrections and payloads</a>, <a href="../development/">code layout and tests</a>.</p>
+<blockquote>
+<p><strong>Templates to use (2026-10-06).</strong> The <code>dnn_vbf_weighted</code> templates
+(<code>hmumu hist dnn_vbf</code>) do <strong>not</strong> re-evaluate the DNN for JES, JER and the
+muon scale/resolution: their jet and muon systematics are wrong, and so is
+every DNN fit made with them. Use <code>dnn_vbf_eta_regions_syst</code> with
+<code>--eta-categories incl</code> (section 7).</p>
+</blockquote>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-overview">Overview</a></li>
+<li><a href="#2-setup">Setup</a></li>
+<li><a href="#3-skims">Skims</a></li>
+<li><a href="#4-validation-manifests">Validation manifests</a></li>
+<li><a href="#5-dy-weights">DY weights</a></li>
+<li><a href="#6-histograms">Histograms</a></li>
+<li><a href="#7-datacards">Datacards</a></li>
+<li><a href="#8-fits">Fits</a></li>
+<li><a href="#9-recipes-case-by-case">Recipes, case by case</a></li>
+<li><a href="#10-plots">Plots</a></li>
+<li><a href="#11-chain-and-status">Chain and status</a></li>
+<li><a href="#12-studies">Studies</a></li>
+<li><a href="#13-synchronisation">Synchronisation</a></li>
+<li><a href="#14-traps-and-troubleshooting">Traps and troubleshooting</a></li>
+<li><a href="#15-where-things-are">Where things are</a></li>
+</ol>
+<hr />
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>NanoAOD ──skim──&gt; skims ──validate──&gt; manifests ──dy-weights──&gt; DY payloads
+        ──hist──&gt; histograms ──hadd──&gt; per process ──merge-syst──&gt; templates (Hists_systMerged)
+        ──plot──&gt; Data/MC, systematic shapes
+        ──combine──&gt; datacards ──fit_suite / run_fit_matrix──&gt; r, significance, pulls, impacts, scans, pre/post-fit
+</code></pre></div>
+<p>One command line, <code>./hmumu &lt;stage&gt; &lt;action&gt;</code>, runs every stage; each prints
+what it runs, <code>--dry-run</code> shows the plan without doing anything, <code>--help</code>
+works everywhere (<code>./hmumu hist dnn_vbf --help</code>).</p>
+<table>
+<thead>
+<tr>
+<th>stage</th>
+<th>command</th>
+<th>output (keys of <code>config/paths.yaml</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file lists</td>
+<td><code>./hmumu skim files</code></td>
+<td><code>config/&lt;era&gt;/samples_withfiles.yaml</code></td>
+</tr>
+<tr>
+<td>skims</td>
+<td><code>./hmumu skim submit\|check</code></td>
+<td><code>$HMUMU_SKIM/&lt;era&gt;/&lt;dataset&gt;/skim_N.root</code></td>
+</tr>
+<tr>
+<td>manifests</td>
+<td><code>./hmumu validate</code></td>
+<td><code>$HMUMU_MANIFESTS/&lt;era&gt;/&lt;dataset&gt;.json</code></td>
+</tr>
+<tr>
+<td>DY weights</td>
+<td><code>./hmumu dy-weights run</code></td>
+<td><code>reweights/dy_*_reweight_skim_v4/&lt;era&gt;/*.json</code></td>
+</tr>
+<tr>
+<td>histograms</td>
+<td><code>./hmumu hist &lt;campaign&gt; submit\|hadd\|merge-syst</code></td>
+<td><code>$HMUMU_HISTOGRAMS/&lt;campaign&gt;/...</code></td>
+</tr>
+<tr>
+<td>checks</td>
+<td><code>python3 tools/check_templates.py</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>plots</td>
+<td><code>./hmumu hist &lt;campaign&gt; plot</code>, <code>./hmumu plot</code>, <code>plot_systematics_campaign.py</code></td>
+<td><code>$HMUMU_WWW/...</code></td>
+</tr>
+<tr>
+<td>datacards</td>
+<td><code>./hmumu combine cards</code>, <code>build_signal_extended_datacards.py</code>, <code>fit_ewkz_systematics.py</code></td>
+<td><code>combine/results_*/</code></td>
+</tr>
+<tr>
+<td>fits</td>
+<td><code>./hmumu combine fit</code>, <code>combine/fit_suite.py</code>, <code>combine/run_fit_matrix.sh</code></td>
+<td><code>combine/results_*/</code></td>
+</tr>
+<tr>
+<td>everything after the skims</td>
+<td><code>./hmumu chain all</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>what is missing</td>
+<td><code>./hmumu status</code></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p>The analysis is the VBF H→μμ search in Run 3, seven eras: <code>2022</code>, <code>2022EE</code>,
+<code>2023</code>, <code>2023BPix</code>, <code>2024</code>, <code>2025</code>, <code>2026</code>. The fit variable is the output of
+the VBF DNN (<code>DNN_NNOutput</code>) in the VBF category. Mass regions
+(<code>config/&lt;era&gt;/selections.yaml</code>):</p>
+<table>
+<thead>
+<tr>
+<th>region</th>
+<th>m(μμ) [GeV]</th>
+<th>fit</th>
+<th>plots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Signal_Fit</code> (SR)</td>
+<td>115–135</td>
+<td>yes, blinded above DNN 0.8</td>
+<td>yes, blinded</td>
+</tr>
+<tr>
+<td><code>H_sideband</code></td>
+<td>110–115, 135–150</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>Signal_ext</code></td>
+<td>110–150 = <code>Signal_Fit</code> + <code>H_sideband</code></td>
+<td>no (it would double count)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>Z_sideband</code></td>
+<td>70–110</td>
+<td>control region, post-fit plots of the data fit</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>mass_inclusive</code></td>
+<td>60–150</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Templates with systematics are needed in every region: the fit reads only its
+channels, the plots show the pre-fit systematic bands everywhere and the
+post-fit in the control regions. Since the routing (6.5) fills <code>Signal_ext</code>
+and <code>mass_inclusive</code> with the inclusive DY/EWK samples, <code>Signal_ext</code> with the
+105–160 samples is obtained by adding <code>Signal_Fit</code> and <code>H_sideband</code>. A second classifier, the VBF selector (<code>VBFSel_NNOutput</code>), is
+used to measure the EWK Z (VBF Z) normalisation in the sidebands.</p>
+<hr />
+<h2 id="2-setup">2. Setup<a class="headerlink" href="#2-setup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:valeriadamante/Hmumu_analysis.git
+<span class="nb">cd</span><span class="w"> </span>Hmumu_analysis
+<span class="nb">source</span><span class="w"> </span>env.sh<span class="w">                                    </span><span class="c1"># bash or zsh</span>
+voms-proxy-init<span class="w"> </span>--voms<span class="w"> </span>cms<span class="w"> </span>--valid<span class="w"> </span><span class="m">192</span>:00<span class="w"> </span>--out<span class="w"> </span>data/voms.proxy
+./hmumu<span class="w"> </span>doctor<span class="w">                                   </span><span class="c1"># checks the setup</span>
+./hmumu<span class="w"> </span>paths<span class="w">                                    </span><span class="c1"># where data are read and written</span>
+</code></pre></div>
+<p><code>env.sh</code>:</p>
+<ul>
+<li>creates a CMSSW area in <code>soft/</code> the first time (<code>CMSSW_15_0_2</code>;
+  <code>source env.sh --cmssw-version CMSSW_15_3_0</code> for another one) and loads it:
+  ROOT, correctionlib, uproot, the python packages;</li>
+<li>sets <code>ANALYSIS_PATH</code> and <code>PYTHONPATH</code> to the checkout and <strong>changes directory
+  into it</strong> (<code>cd</code> elsewhere only after sourcing);</li>
+<li>defines <code>run_combine_tool</code>, <code>combine</code>, <code>combine_cards</code>: combine v11 from the
+  CVMFS container, no local build (<code>COMBINE_IMAGE</code> selects another image);</li>
+<li>exports the storage locations as <code>HMUMU_&lt;KEY&gt;</code>.</li>
+</ul>
+<p>Arguments of a script that sources it are ignored, so <code>source env.sh</code> is safe
+inside other scripts. The grid proxy is needed for the skims (xrootd) and is
+forwarded to every Condor job; <code>X509_USER_PROXY</code>, when set, wins over
+<code>data/voms.proxy</code>.</p>
+<h3 id="storage-locations">Storage locations<a class="headerlink" href="#storage-locations" title="Permanent link">&para;</a></h3>
+<p>Every path outside the repository is a key of <code>config/paths.yaml</code>:</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skim</code></td>
+<td>skims, <code>&lt;skim&gt;/&lt;era&gt;/&lt;dataset&gt;/skim_N.root</code> + <code>report_N.json</code></td>
+</tr>
+<tr>
+<td><code>skim_no_horn_veto</code></td>
+<td>2025/2026 skims without the jet horn veto</td>
+</tr>
+<tr>
+<td><code>manifests</code></td>
+<td>validation manifests</td>
+</tr>
+<tr>
+<td><code>dy_weight_histograms</code></td>
+<td>inputs of the DY-weight fits (<code>jet/</code>, <code>ptll/</code>, <code>njets/</code>)</td>
+</tr>
+<tr>
+<td><code>histograms</code></td>
+<td>every histogram campaign</td>
+</tr>
+<tr>
+<td><code>sync</code></td>
+<td>synchronisation exchange area</td>
+</tr>
+<tr>
+<td><code>www</code></td>
+<td>web area of the plots</td>
+</tr>
+<tr>
+<td><code>proxy</code></td>
+<td>grid proxy for the Condor jobs</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>paths<span class="w"> </span>skim<span class="w">                               </span><span class="c1"># one value</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HMUMU_SKIM</span><span class="o">=</span>/eos/user/j/jdoe/skim_v4<span class="w">       </span><span class="c1"># override one key</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HMUMU_PATHS</span><span class="o">=</span>~/hmumu_paths.yaml<span class="w">            </span><span class="c1"># or a file with only the keys you change</span>
+</code></pre></div>
+<p>Precedence: <code>HMUMU_&lt;KEY&gt;</code>, then <code>HMUMU_PATHS</code>, then <code>config/paths.yaml</code>. Values
+can refer to other keys (<code>"{eos_user}/manifests_skim_v4"</code>) and to the checkout
+(<code>"{repo}/data/voms.proxy"</code>). In code, paths are read with
+<code>common.paths.path(key)</code> (Python) or <code>$HMUMU_&lt;KEY&gt;</code> (shell), never written out.</p>
+<h3 id="per-era-configuration">Per-era configuration<a class="headerlink" href="#per-era-configuration" title="Permanent link">&para;</a></h3>
+<p>Eras are <strong>not</strong> copies of each other (the <code>categories:</code> block differs between
+2022–2023 and 2024–2026): always read the file of the era you work on.</p>
+<table>
+<thead>
+<tr>
+<th>file</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config/&lt;era&gt;/maincfg.yaml</code></td>
+<td>luminosity, golden JSON, corrections, histogram variables</td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/samples.yaml</code></td>
+<td>datasets, NanoAOD paths, <code>additional_cuts</code></td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/samples_withfiles.yaml</code></td>
+<td>resolved file lists (generated, not in git)</td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/process_names.yaml</code></td>
+<td>datasets → processes, DY-weight payloads (<code>reweight_jsons</code>), <code>split_jet_components</code></td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/selections.yaml</code></td>
+<td>objects, mass regions, categories (<code>store: True</code> = produced by <code>--regions all</code>)</td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/systematics.yaml</code></td>
+<td>variations, nuisance names, cross-era correlation</td>
+</tr>
+<tr>
+<td><code>config/&lt;era&gt;/skim_cfg.yaml</code></td>
+<td>processes to skim, chunking</td>
+</tr>
+<tr>
+<td><code>config/plot/histograms.yaml</code></td>
+<td>binning, blinding (<code>blind_range</code>)</td>
+</tr>
+<tr>
+<td><code>config/histogram_sample_routing.yaml</code></td>
+<td>which DY/EWK sample fills which mass region</td>
+</tr>
+<tr>
+<td><code>config/crossSections13p6TeV.yaml</code></td>
+<td>cross sections and their uncertainties</td>
+</tr>
+<tr>
+<td><code>config/campaigns/*.sh</code></td>
+<td>histogram campaigns (section 6)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-skims">3. Skims<a class="headerlink" href="#3-skims" title="Permanent link">&para;</a></h2>
+<p>The skim reads NanoAOD, applies object selection and corrections
+(<code>analysis/</code>, <code>corrections/</code>) and stores corrected objects and the nominal and
+shifted primitives. Categories are defined later, at histogram level, so they
+can change without re-skimming as long as the primitives are stored.</p>
+<h3 id="31-file-lists">3.1 File lists<a class="headerlink" href="#31-file-lists" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>skim<span class="w"> </span>files<span class="w"> </span>--era<span class="w"> </span>Run3_2024<span class="w"> </span>--use-ext<span class="w">     </span><span class="c1"># one era per call; --use-ext adds the extensions</span>
+<span class="c1"># moving to newer NanoAOD versions first:</span>
+python3<span class="w"> </span>htcondor/update_nanoaod_versions.py<span class="w"> </span>--era<span class="w"> </span>Run3_2024,Run3_2025<span class="w"> </span>--include-data<span class="w"> </span>--dry-run
+python3<span class="w"> </span>htcondor/update_nanoaod_versions.py<span class="w"> </span>--era<span class="w"> </span>Run3_2024,Run3_2025<span class="w"> </span>--include-data<span class="w"> </span>--in-place
+git<span class="w"> </span>diff<span class="w"> </span>config/Run3_*/samples.yaml
+</code></pre></div>
+<h3 id="32-submit">3.2 Submit<a class="headerlink" href="#32-submit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>skim<span class="w"> </span>plan<span class="w">    </span>--era<span class="w"> </span><span class="m">2024</span><span class="w">                     </span><span class="c1"># the submitter commands</span>
+./hmumu<span class="w"> </span>skim<span class="w"> </span>dry-run<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w">                     </span><span class="c1"># missing chunks, nothing submitted</span>
+./hmumu<span class="w"> </span>skim<span class="w"> </span>submit<span class="w">  </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--max-submit-jobs<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c1"># one test job</span>
+./hmumu<span class="w"> </span>skim<span class="w"> </span>submit<span class="w">  </span>--era<span class="w"> </span><span class="m">2024</span><span class="w">                     </span><span class="c1"># the whole era</span>
+./hmumu<span class="w"> </span>skim<span class="w"> </span>submit<span class="w">  </span>--era<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--dataset<span class="w"> </span>VBFHto2Mu_M125_powheg_herwig<span class="w">   </span><span class="c1"># one dataset</span>
+</code></pre></div>
+<p>Without <code>--era</code> all seven eras are selected. Only chunks without output are
+submitted, so <code>submit</code> also resumes; to redo a chunk delete its <code>skim_N.root</code>
+and <code>report_N.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--dataset NAME</code></td>
+<td>one dataset (repeatable)</td>
+</tr>
+<tr>
+<td><code>--variant with\|without\|both</code></td>
+<td>2025/2026: with/without the jet horn veto (default both)</td>
+</tr>
+<tr>
+<td><code>--n-events N</code></td>
+<td>test, N events per job, to <code>&lt;skim&gt;_testN</code></td>
+</tr>
+<tr>
+<td><code>--output PATH</code></td>
+<td>another skim base</td>
+</tr>
+<tr>
+<td><code>--max-submit-jobs N</code>, <code>--max-parallel-jobs N</code></td>
+<td>throttling</td>
+</tr>
+<tr>
+<td><code>HMUMU_MAX_QUEUED_JOBS</code> (env, default 3000)</td>
+<td>global cap: idle + running jobs of the user, all campaigns; a cluster materialises at most this many jobs and is submitted only when the queue has room</td>
+</tr>
+<tr>
+<td><code>--proxy PATH</code></td>
+<td>proxy to forward</td>
+</tr>
+</tbody>
+</table>
+<p>Chunks: at most 5 GB and 5 files per job (<code>target_chunk_size_gb</code>,
+<code>max_files_per_chunk</code> in <code>skim_cfg.yaml</code>); the chunk → files map and the job
+logs are in <code>htcondor/&lt;skim name&gt;/&lt;era&gt;/&lt;dataset&gt;/</code>.</p>
+<h3 id="33-check">3.3 Check<a class="headerlink" href="#33-check" title="Permanent link">&para;</a></h3>
+<p>A job killed after the <code>Snapshot</code> leaves a full <code>.root</code> without its report; a
+truncated file opens but has fewer events than its report. <code>skim check</code> opens
+every chunk, reads the last event and compares with the report:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>skim<span class="w"> </span>check<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--output<span class="w"> </span>results/skim_v4/check_Run3_2024.json
+./hmumu<span class="w"> </span>skim<span class="w"> </span>check<span class="w"> </span>--era<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--no-horn-veto
+python3<span class="w"> </span>analysis/check_duplicate_mc.py<span class="w"> </span>skim_0.root<span class="w"> </span><span class="o">[</span>skim_1.root<span class="o">]</span><span class="w">   </span><span class="c1"># duplicated events</span>
+</code></pre></div>
+<p>Empty datasets (no events in any file) break tools that read the skims
+directly; to list them:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$HMUMU_SKIM</span><span class="s2">"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>era<span class="w"> </span><span class="k">in</span><span class="w"> </span>*/<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$era</span><span class="s2">"</span>*/<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="s2">"</span><span class="nv">$d</span><span class="s2">"</span>*.root<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-v<span class="w"> </span><span class="nv">d</span><span class="o">=</span><span class="s2">"</span><span class="nv">$d</span><span class="s2">"</span><span class="w"> </span><span class="s1">'$5&gt;10000{ok=1} END{if(!ok) print "EMPTY", d}'</span>
+<span class="k">done</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<hr />
+<h2 id="4-validation-manifests">4. Validation manifests<a class="headerlink" href="#4-validation-manifests" title="Permanent link">&para;</a></h2>
+<p>Histogram jobs read one manifest per dataset: the valid
+<code>skim_N.root</code>/<code>report_N.json</code> pairs and the normalisation of the <strong>whole</strong>
+dataset (so a job on a subset of files is still normalised correctly).</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>validate<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span><span class="w">                    </span><span class="c1"># every skimmed dataset, on Condor</span>
+./hmumu<span class="w"> </span>validate<span class="w"> </span>--eras<span class="w"> </span><span class="m">2022</span>,2022EE<span class="w"> </span>--dry-run
+./hmumu<span class="w"> </span>validate<span class="w"> </span>--eras<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--no-horn-veto
+./hmumu<span class="w"> </span>validate<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--datasets<span class="w"> </span>signals,EWK<span class="w"> </span>--local
+</code></pre></div>
+<p>Only missing manifests are written. A dataset without a manifest is excluded
+by the campaigns and reported as <code>[UNAVAILABLE]</code>: do not start histograms while
+manifests are missing.</p>
+<hr />
+<h2 id="5-dy-weights">5. DY weights<a class="headerlink" href="#5-dy-weights" title="Permanent link">&para;</a></h2>
+<p>Three data-driven DY corrections, fitted in the Z sideband in a fixed order,
+each on top of the previous one:</p>
+<table>
+<thead>
+<tr>
+<th>stage</th>
+<th>campaign</th>
+<th>payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>jet</code>: normalisation of the jet components (0J, 1J Hard/PU, 2J Hard/PU1/PU2, VBF Hard/PU)</td>
+<td><code>dy012j_skim_v4</code></td>
+<td><code>reweights/dy_012j_reweight_skim_v4/&lt;era&gt;/dy_012j_reweight.json</code></td>
+</tr>
+<tr>
+<td><code>ptll</code>: pT(μμ) shape per jet category</td>
+<td><code>dy_ptll_skim_v4</code></td>
+<td><code>reweights/dy_ptll_reweight_skim_v4/&lt;era&gt;/dy_ptll_reweight_smart.json</code></td>
+</tr>
+<tr>
+<td><code>njets</code>: selected-jet multiplicity, ggF and VBF</td>
+<td><code>dy_njets_skim_v4</code></td>
+<td><code>reweights/dy_njets_reweight_skim_v4/&lt;era&gt;/dy_njets_reweight.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>The payloads used are the <code>reweight_jsons</code> of the DY process in
+<code>config/&lt;era&gt;/process_names.yaml</code>, one per era. The method is in
+<a href="../sync/dy_reweighting/">sync/dy_reweighting.md</a>.</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>run<span class="w"> </span>--eras<span class="w"> </span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026
+</code></pre></div>
+<p><code>run</code> does one step and returns: it submits the first incomplete stage, or
+hadds and fits it when its histograms are there. Exit code <strong>3</strong> = submitted,
+waiting for Condor (not an error); 0 = all three payloads up to date. Call it
+again after each wave, or let <code>./hmumu chain dy-weights</code> wait. A payload older
+than its input histograms is refitted.</p>
+<p>Step by step:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>check<span class="w">         </span>--weight-stage<span class="w"> </span>jet<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>
+./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>submit<span class="w">        </span>--weight-stage<span class="w"> </span>jet<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>
+./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>hadd<span class="w">          </span>--weight-stage<span class="w"> </span>jet<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>
+./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>fit<span class="w">           </span>--weight-stage<span class="w"> </span>jet<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span><span class="w"> </span><span class="o">[</span>--fit-option<span class="w"> </span>--pu1-pu2<span class="o">=</span>tied<span class="o">]</span>
+./hmumu<span class="w"> </span>dy-weights<span class="w"> </span>check-weights<span class="w"> </span>--weight-stage<span class="w"> </span>jet<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>
+</code></pre></div>
+<p>The fits write their diagnostic plots next to the payloads
+(<code>dy_012j_{0J,1J,2J,VBF}_{pre,post}fit.png</code>, <code>{ggF_0J,...}_ptll_*.png</code>,
+<code>{ggF,VBF}_njets_*.png</code>). The tools are <code>tools/derive_dy_012j_reweight.py</code>,
+<code>tools/derive_dy_ptll_njets_reweight.py</code>, <code>tools/derive_dy_njets_reweight.py</code>.</p>
+<p><strong>A refit invalidates every DY histogram of that era</strong>: the checks mark them
+<code>STALE</code> and hadd stops. Reproduce them:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>submit<span class="w"> </span>--mode<span class="w"> </span>central<span class="w"> </span>--eras<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--datasets<span class="w"> </span>region_auto<span class="w"> </span>--force
+</code></pre></div>
+<p>Campaigns apply the three weights by default. To choose:
+<code>--dy-weights jet-component,ptll</code> (two of them), <code>--dy-weights ''</code> (none).
+Only DY datasets read the payloads.</p>
+<hr />
+<h2 id="6-histograms">6. Histograms<a class="headerlink" href="#6-histograms" title="Permanent link">&para;</a></h2>
+<p><code>histograms/hist_maker.py</code> fills histograms from the skims of one dataset; a
+<strong>campaign</strong> runs it on Condor for every dataset, era and systematic family,
+then aggregates. Engine: <code>campaigns/workflow.py</code>; every action checks its
+inputs and outputs and stops (exit 1) on anything incomplete.</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span>&lt;campaign&gt;<span class="w"> </span>&lt;action&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span>&lt;campaign&gt;<span class="w"> </span>paths<span class="w">          </span><span class="c1"># resolved inputs, output, eras, families, options</span>
+</code></pre></div>
+<h3 id="61-campaigns">6.1 Campaigns<a class="headerlink" href="#61-campaigns" title="Permanent link">&para;</a></h3>
+<p>One file per campaign in <code>config/campaigns/</code> (<code>CAMPAIGN_ROOT</code>, <code>ERAS</code>,
+<code>SYSTEMATICS</code>, <code>DATASETS</code>, <code>HIST_ARGS</code>, job size; see the
+<a href="../config/campaigns/README.md">README</a>).</p>
+<table>
+<thead>
+<tr>
+<th>campaign</th>
+<th>content</th>
+<th>systematics</th>
+<th>use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dnn_vbf_eta_regions_syst</code></td>
+<td>DNN, VBF, Z/Signal_Fit/H sideband, <code>incl</code>/<code>CC</code>/<code>CF</code>/<code>FF</code>, DY/EWK jet components</td>
+<td>all</td>
+<td><strong>DNN fit input</strong></td>
+</tr>
+<tr>
+<td><code>dnn_vbf</code> (root <code>dnn_vbf/</code> since 2026-10-06)</td>
+<td>DNN, VBF, five regions, components</td>
+<td>all</td>
+<td>DNN plots in every region (Signal_ext, mass_inclusive too)</td>
+</tr>
+<tr>
+<td><code>dnn_vbf_weighted</code> (old root of <code>dnn_vbf</code>)</td>
+<td>the same, produced 2026-09-17</td>
+<td>all, <strong>JES/JER/ScaRe wrong</strong> (below)</td>
+<td>to be deleted</td>
+</tr>
+<tr>
+<td><code>dnn_vbf_dy_unweighted</code></td>
+<td>as <code>dnn_vbf</code> without DY weights</td>
+<td>Central</td>
+<td>DNN study</td>
+</tr>
+<tr>
+<td><code>all_variables</code></td>
+<td>every stored region/category × every maincfg variable</td>
+<td>all</td>
+<td>Data/MC</td>
+</tr>
+<tr>
+<td><code>vbf_eta_regions</code></td>
+<td>all variables, VBF split incl/CC/CF/FF</td>
+<td>Central</td>
+<td>η study</td>
+</tr>
+<tr>
+<td><code>dnn_vbf_eta_regions</code></td>
+<td>DNN, VBF split incl/CC/CF/FF</td>
+<td>Central</td>
+<td>η study</td>
+</tr>
+<tr>
+<td><code>vbf_selector_ewkz</code></td>
+<td>VBF-selector score and its 24 inputs, Z and H sidebands, components</td>
+<td>all</td>
+<td><strong>EWK Z fit input</strong></td>
+</tr>
+<tr>
+<td><code>vbf_pair_definition</code></td>
+<td>alternative VBF pairs (<code>VBF_PAIR_DEF=maxmjj\|hardest\|leading</code>)</td>
+<td>Central</td>
+<td>pair study</td>
+</tr>
+<tr>
+<td><code>dy012j_skim_v4</code>, <code>dy_ptll_skim_v4</code>, <code>dy_njets_skim_v4</code></td>
+<td>DY-weight inputs</td>
+<td>Central</td>
+<td>via <code>hmumu dy-weights</code></td>
+</tr>
+<tr>
+<td><code>jet_horn_veto</code></td>
+<td>Data/DY with and without the horn veto (built in <code>workflow.py</code>)</td>
+<td>Central</td>
+<td>horn-veto study</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-actions">6.2 Actions<a class="headerlink" href="#62-actions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paths</code></td>
+<td>resolved configuration</td>
+</tr>
+<tr>
+<td><code>check --stage S</code></td>
+<td><code>histograms</code>, <code>hadded</code>, <code>merged-eras</code>, <code>merged-syst</code>, <code>merged</code>, <code>all</code></td>
+</tr>
+<tr>
+<td><code>submit</code></td>
+<td>submit missing and broken outputs to Condor</td>
+</tr>
+<tr>
+<td><code>local</code></td>
+<td>the same, here</td>
+</tr>
+<tr>
+<td><code>validate</code></td>
+<td>missing manifests of the campaign's datasets</td>
+</tr>
+<tr>
+<td><code>hadd</code></td>
+<td>dataset files → process files, per era and family (<code>--jobs N</code>)</td>
+</tr>
+<tr>
+<td><code>merge-syst</code></td>
+<td>Central + every family → one file per process (<code>Hists_systMerged/</code>), with a receipt</td>
+</tr>
+<tr>
+<td><code>merge-era</code></td>
+<td>sum of eras into a pseudo-era (<code>--merged-era NAME</code>)</td>
+</tr>
+<tr>
+<td><code>plot</code></td>
+<td>plots per era; <code>--merged</code> for a merged era</td>
+</tr>
+<tr>
+<td><code>finish</code></td>
+<td>hadd → merge-syst → plot (→ merge-era → merged plots)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--eras 2024,2025</code></td>
+<td>eras (default: the campaign's <code>ERAS</code>)</td>
+</tr>
+<tr>
+<td><code>--mode central\|syst\|both</code></td>
+<td>Central, the families, or both</td>
+</tr>
+<tr>
+<td><code>--families PU,Muon</code></td>
+<td>subset of families</td>
+</tr>
+<tr>
+<td><code>--jes regrouped\|total</code></td>
+<td>11 regrouped JES sources (default) or the total</td>
+</tr>
+<tr>
+<td><code>--dy-weights ...</code></td>
+<td>DY reweights to apply (<code>''</code> none)</td>
+</tr>
+<tr>
+<td><code>--regions</code>, <code>--categories</code>, <code>--variables</code>, <code>--datasets</code></td>
+<td>override the selection</td>
+</tr>
+<tr>
+<td><code>--input-dir</code>, <code>--manifest-root</code>, <code>--output-dir</code></td>
+<td>override the bases</td>
+</tr>
+<tr>
+<td><code>--memory 20GB</code>, <code>--threads 8</code>, <code>--variable-batch-size N</code></td>
+<td>job size</td>
+</tr>
+<tr>
+<td><code>--check-level files</code></td>
+<td>presence/size/time only, no ROOT opening (fast)</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td>redo the whole selection</td>
+</tr>
+<tr>
+<td><code>--missing-only</code></td>
+<td><code>hadd</code>: resume, removing empty/stale/unreadable outputs first</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>print, do nothing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-produce-and-validate-a-campaign-the-standard-sequence">6.3 Produce and validate a campaign (the standard sequence)<a class="headerlink" href="#63-produce-and-validate-a-campaign-the-standard-sequence" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
+<span class="nv">C</span><span class="o">=</span>dnn_vbf_eta_regions_syst<span class="w">          </span><span class="c1"># or vbf_selector_ewkz, all_variables, ...</span>
+<span class="nv">E</span><span class="o">=</span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>submit<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span>
+condor_q<span class="w"> </span>-af<span class="w"> </span>JobBatchName<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w">                         </span><span class="c1"># wait until empty</span>
+python3<span class="w"> </span>tools/check_templates.py<span class="w"> </span><span class="nv">$HMUMU_HISTOGRAMS</span>/<span class="nv">$C</span><span class="w"> </span>--stage<span class="w"> </span>raw<span class="w"> </span>--quarantine
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>submit<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span><span class="w"> </span>--check-level<span class="w"> </span>files<span class="w">   </span><span class="c1"># redo what was quarantined</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>check<span class="w"> </span>--stage<span class="w"> </span>histograms<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span><span class="w"> </span>--check-level<span class="w"> </span>files
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>hadd<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>merge-syst<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span>
+python3<span class="w"> </span>tools/check_templates.py<span class="w"> </span><span class="nv">$HMUMU_HISTOGRAMS</span>/<span class="nv">$C</span><span class="w"> </span>--stage<span class="w"> </span>merged
+</code></pre></div>
+<p>Why <code>tools/check_templates.py</code>: <code>check --check-level files</code> does not see a file
+truncated by an EOS write error, and <code>--check-level root</code> (uproot) can hang on
+it. The tool opens every file with ROOT (zombie, "recovered", no keys) and,
+on the merged files, checks that the median of variation/nominal of each
+template is within 3% of 1 (a hadd that lost a dataset gives about 0.5).
+<code>--quarantine</code> moves the broken raw files to <code>&lt;campaign&gt;_quarantine_&lt;date&gt;/</code>
+(reversible) so <code>submit</code> produces them again. Since 2026-10-06 <code>hist_maker.py</code>
+fails a job with a truncated output, so Condor retries it.</p>
+<p><strong>When the guarded hadd/merge-syst refuse to run</strong> because of datasets that
+cannot be produced (FlashSim samples in DNN campaigns: their skims lack
+<code>SoftJetCleanedActivity_*</code>; <code>VBFHto2Mu_M125_powheg_herwig</code> without manifest),
+run the planned commands directly:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>hadd<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--force<span class="w"> </span>--dry-run<span class="w"> </span>--check-level<span class="w"> </span>files<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>hadd_hists_to_processes.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/^\$ //'</span><span class="w"> </span>&gt;<span class="w"> </span>hadd_cmds.sh
+xargs<span class="w"> </span>-a<span class="w"> </span>hadd_cmds.sh<span class="w"> </span>-d<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span>-P<span class="w"> </span><span class="m">4</span><span class="w"> </span>-I<span class="o">{}</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'{}'</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span><span class="nv">$C</span><span class="w"> </span>merge-syst<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--force<span class="w"> </span>--dry-run<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>merge-systematics<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/^\$ //'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>c<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$c</span><span class="s2"> --force"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+python3<span class="w"> </span>tools/check_templates.py<span class="w"> </span><span class="nv">$HMUMU_HISTOGRAMS</span>/<span class="nv">$C</span><span class="w"> </span>--stage<span class="w"> </span>merged
+</code></pre></div>
+<p>The direct merge writes no receipt (<code>.workflow_syst_Run3_&lt;era&gt;.json</code>): once
+<code>check_templates.py --stage merged</code> says OK, build the cards with
+<code>--allow-unmerged</code>.</p>
+<p><strong>Jobs longer than 8 h</strong> (DY M-50 with many variables) are removed by Condor:
+set <code>+JobFlavour = "tomorrow"</code> in <code>htcondor/&lt;mode&gt;/&lt;dir&gt;/submit.sub</code> and
+resubmit it, or <code>condor_qedit &lt;cluster&gt; MaxRuntime 86400</code> while idle. Or shard
+the dataset:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>shard<span class="w"> </span>submit<span class="w"> </span>--config<span class="w"> </span>all_variables<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--dataset<span class="w"> </span>DYto2Mu_M_50_amcatnloFXFX<span class="w"> </span>--shards<span class="w"> </span><span class="m">10</span>
+./hmumu<span class="w"> </span>shard<span class="w"> </span>merge<span class="w">  </span>--config<span class="w"> </span>all_variables<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--dataset<span class="w"> </span>DYto2Mu_M_50_amcatnloFXFX<span class="w"> </span>--shards<span class="w"> </span><span class="m">10</span>
+</code></pre></div>
+<p>The shards are normalised with the dataset-wide reports, so their sum equals
+the unsharded output; <code>merge</code> refuses an incomplete set (<code>--family</code>,
+<code>--cleanup</code>).</p>
+<h3 id="64-output-layout">6.4 Output layout<a class="headerlink" href="#64-output-layout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&lt;root&gt;/&lt;family&gt;/Run3_&lt;era&gt;/&lt;dataset&gt;.root                    per dataset (and per jet component)
+&lt;root&gt;/&lt;family&gt;_hadded/Run3_&lt;era&gt;/&lt;process&gt;.root             per process
+&lt;root&gt;/Hists_systMerged/Run3_&lt;era&gt;/&lt;process&gt;.root            Central + every family: the datacard input
+&lt;root&gt;/Central_hadded/&lt;merged era&gt;/...                       merged eras
+&lt;root&gt;/.workflow_syst_Run3_&lt;era&gt;.json                        merge receipt
+</code></pre></div>
+<p>Inside a file: <code>&lt;mass region&gt;_&lt;category&gt;/&lt;variable&gt;</code>, shifted templates
+<code>&lt;variable&gt;_&lt;nuisance&gt;Up/Down</code>. With <code>--vbf-eta-regions</code> one more level:
+<code>Signal_Fit_VBF/{incl,CC,CF,FF}/DNN_NNOutput</code>. Jet components are separate
+files: <code>&lt;process&gt;_2J_Hard.root</code>, <code>_2J_PU1</code>, <code>_2J_PU2</code> (and 0J, 1J_Hard, 1J_PU).</p>
+<h3 id="65-physics-options-of-the-producer">6.5 Physics options of the producer<a class="headerlink" href="#65-physics-options-of-the-producer" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sample routing</strong> (<code>config/histogram_sample_routing.yaml</code>): in <code>Signal_Fit</code>
+  and <code>H_sideband</code> DY and EWK come from the MLL 105–160 samples, elsewhere from
+  the inclusive ones. In 2024–2026 the 105–160 DY is the inclusive sample with
+  <code>GenVBFFilter==0</code> plus the VBF-filtered one with <code>GenVBFFilter==1</code>
+  (<code>additional_cuts</code> of <code>samples.yaml</code>). <code>Signal_ext</code> therefore has no DY/EWK
+  templates and is not used in the fit.</li>
+<li><strong>Jet components</strong> (<code>--pu-hard-jet-components</code>): MC split by how many of the
+  two leading jets are matched to a generator jet: <code>0J</code>, <code>1J_Hard</code>, <code>1J_PU</code>,
+  <code>2J_Hard</code>, <code>2J_PU1</code>, <code>2J_PU2</code>. Processes split: <code>split_jet_components</code> of
+  <code>process_names.yaml</code>.</li>
+<li><strong>VBF η regions</strong> (<code>--vbf-eta-regions</code>): <code>incl</code>, <code>CC</code> (both VBF jets
+  |η| &lt; 2.5), <code>CF</code> (one), <code>FF</code> (none). Can be combined with the jet components
+  (fixed in <code>hist_maker.py</code> on 2026-10-06: before, data and non-split MC got
+  no η split).</li>
+<li><strong>Systematic families</strong>: <code>SYSTEMATICS</code> of the campaign; JES as 11 regrouped
+  sources by default; names and correlations in <code>config/&lt;era&gt;/systematics.yaml</code>
+  (<a href="../SYSTEMATIC_CORRELATIONS/">SYSTEMATIC_CORRELATIONS.md</a>). The JES, JER and
+  ScaRe families re-select the events <strong>and</strong> re-evaluate the DNN and the VBF
+  selector (<code>common/dnn_application.ApplyDNNVariations</code>). Before that fix
+  (<code>dnn_vbf_weighted</code>, 2026-09-17) the DNN was evaluated once, on the nominal
+  inputs, and the shifted histograms used that nominal score: a variation
+  could only move events across the selection, not along the DNN. Events
+  selected only with the shifted jets carry nominal inputs in which the VBF
+  pair does not exist (VBF variables at the default -10000), so they got a
+  score near 0 and piled up in the first DNN bin (JES Down, DY M-50 in the Z
+  sideband: +56% in bin 1, other bins unchanged), while the opposite direction
+  only lowered the normalisation.</li>
+</ul>
+<h3 id="66-one-off-histograms">6.6 One-off histograms<a class="headerlink" href="#66-one-off-histograms" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span>custom<span class="w"> </span>--era<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--dataset<span class="w"> </span>VBFHto2Mu_M125_powheg<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--variable<span class="w"> </span>DNN_NNOutput<span class="w"> </span>--region<span class="w"> </span>Signal_Fit<span class="w"> </span>--category<span class="w"> </span>VBF<span class="w"> </span>--one-file<span class="w"> </span>--run
+./hmumu<span class="w"> </span>hist<span class="w"> </span>custom<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--datasets<span class="w"> </span>signals,EWK<span class="w"> </span>--systematics<span class="w"> </span>Central,Muon<span class="w"> </span>--condor<span class="w"> </span>--run
+python3<span class="w"> </span>histograms/hist_maker.py<span class="w"> </span>--help<span class="w">              </span><span class="c1"># every producer option</span>
+</code></pre></div>
+<hr />
+<h2 id="7-datacards">7. Datacards<a class="headerlink" href="#7-datacards" title="Permanent link">&para;</a></h2>
+<h3 id="71-dnn-card-h">7.1 DNN card (H→μμ)<a class="headerlink" href="#71-dnn-card-h" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">IN</span><span class="o">=</span><span class="nv">$HMUMU_HISTOGRAMS</span>/dnn_vbf_eta_regions_syst/Hists_systMerged
+python3<span class="w"> </span>combine/build_signal_extended_datacards.py<span class="w"> </span>--input<span class="w"> </span><span class="nv">$IN</span><span class="w"> </span>--allow-unmerged<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--eras<span class="w"> </span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--eta-categories<span class="w"> </span>incl<span class="w"> </span>--dy-model<span class="w"> </span>lnn<span class="w"> </span>--channels<span class="w"> </span>sr,hsb<span class="w"> </span>--blind-split<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>combine/results_X/lnn/datacard.txt
+<span class="c1"># the same through the CLI:</span>
+./hmumu<span class="w"> </span>combine<span class="w"> </span>cards<span class="w"> </span>--input<span class="w"> </span><span class="nv">$IN</span><span class="w"> </span>--allow-unmerged<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--eta-categories<span class="w"> </span>incl<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dy-model<span class="w"> </span>lnn<span class="w"> </span>--output<span class="w"> </span>combine/results_X/lnn/datacard.txt
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--input</code></td>
+<td><code>Hists_systMerged</code> of the campaign (default: <code>dnn_vbf_weighted</code>, <strong>change it</strong>)</td>
+</tr>
+<tr>
+<td><code>--eras</code></td>
+<td>default every era with a merge receipt</td>
+</tr>
+<tr>
+<td><code>--channels</code></td>
+<td><code>sr</code> (Signal_Fit_VBF), <code>hsb</code> (H_sideband_VBF), <code>zsb</code> (Z_sideband_VBF); e.g. <code>sr,hsb</code></td>
+</tr>
+<tr>
+<td><code>--eta-categories</code></td>
+<td><code>incl</code> (whole VBF) or <code>CC,CF,FF</code> (one channel and one DY normalisation per category)</td>
+</tr>
+<tr>
+<td><code>--dy-model</code></td>
+<td><code>lnn</code>, <code>rateparam-pu</code>, <code>rateparam-both</code>, <code>inclusive</code> (below)</td>
+</tr>
+<tr>
+<td><code>--blind-split 0.8</code></td>
+<td>SR split at DNN 0.8 into <code>..srlo</code>/<code>..srhi</code>, so a data fit can mask the high part</td>
+</tr>
+<tr>
+<td><code>--dy-scale-shape-only</code></td>
+<td>DY QCD scales shape-only + <code>QCD_{fac,ren}_scale_V_DYextrap</code> lnN for the Z-sideband → channel extrapolation (templates in <code>patched_templates/</code>)</td>
+</tr>
+<tr>
+<td><code>--rateparam-scope group\|all</code></td>
+<td>one DY rateParam per era group or one for all eras</td>
+</tr>
+<tr>
+<td><code>--rate-param-range 0.2,5</code></td>
+<td>rateParam range</td>
+</tr>
+<tr>
+<td><code>--xsec-model per-source\|per-process</code></td>
+<td>cross-section lnN (7.3); default <code>per-source</code></td>
+</tr>
+<tr>
+<td><code>--variable</code></td>
+<td>default <code>DNN_NNOutput</code></td>
+</tr>
+<tr>
+<td><code>--allow-unmerged</code></td>
+<td>accept eras without merge receipt (only after <code>check_templates --stage merged</code> OK)</td>
+</tr>
+</tbody>
+</table>
+<p>Channels are named <code>y&lt;era&gt;_&lt;region&gt;[&lt;eta cat&gt;]</code>, e.g. <code>y2024_srlo</code>,
+<code>y2024_srhi</code>, <code>y2024_hsb</code>, <code>y2024_srCC</code>.</p>
+<p><strong>DY models</strong></p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>DY PU1 + PU2</th>
+<th>DY Hard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lnn</code></td>
+<td><code>DYVBFZ_fit_2JPU1/2_&lt;group&gt;</code> lnN</td>
+<td><code>DYVBFZ_fit_2JHard_&lt;group&gt;</code> lnN</td>
+</tr>
+<tr>
+<td><code>rateparam-pu</code></td>
+<td>one free <code>DY_norm_PU_&lt;group&gt;</code></td>
+<td>lnN</td>
+</tr>
+<tr>
+<td><code>rateparam-both</code></td>
+<td><code>DY_norm_PU_&lt;group&gt;</code></td>
+<td><code>DY_norm_Hard_&lt;group&gt;</code></td>
+</tr>
+<tr>
+<td><code>inclusive</code></td>
+<td>one DY template (<code>DYto2Mu_MLL105To160</code>), one free rateParam</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p>The lnN are 1 + error/value of the VBF components of the 012J fit
+(<code>reweights/dy_012j_reweight_skim_v4/&lt;group&gt;/dy_012j_reweight_fit.json</code>), per
+group <code>2022_2022EE</code>, <code>2023_2023BPix</code>, <code>2024</code>, <code>2025</code>, <code>2026</code>.
+<code>inclusive</code> cannot take <code>--dy-scale-shape-only</code>.</p>
+<p><strong>What is in the card</strong></p>
+<ul>
+<li>shape nuisances from <code>config/&lt;era&gt;/systematics.yaml</code> (JES 11 sources, JER 6
+  η/pT bins, muon ID/iso/trigger, muon scale/resolution, PU, QCD scales, PDF,
+  EWK Z parton shower). A shape column is enabled only where both variations
+  exist, are positive and have no negative bin; the build log lists the
+  disabled ones. <code>CMS_scale_j_total_&lt;era&gt;</code> is dropped (the regrouped sources
+  are used);</li>
+<li>luminosity (<code>datacard_inputs.lumidict</code>; 2026 uses the 2025 values);</li>
+<li>cross sections (7.3), DY lnN or rateParams (above);</li>
+<li>parton shower of EWK Z and VBF H (<code>derived_systematics</code>): herwig ± 0.5·|pythia − herwig|; VBF H reads <code>VBFHto2Mu_M125_powheg_herwig</code> where it exists (2024–2026), and in 2022–2023 gets the 2024 difference scaled by lumi(era)/lumi(2024) (<code>CMS_hmm_VBFH_partonShower</code>, one nuisance for all eras);</li>
+<li><code>autoMCStats</code> (Barlow–Beeston lite);</li>
+<li>a process absent in an era (e.g. <code>SingleH</code>) is skipped.</li>
+</ul>
+<h3 id="72-vbf-selector-cards-ewk-z-in-the-sidebands">7.2 VBF-selector cards (EWK Z in the sidebands)<a class="headerlink" href="#72-vbf-selector-cards-ewk-z-in-the-sidebands" title="Permanent link">&para;</a></h3>
+<p>Written by <code>studies/vbf_selector/fit_ewkz_systematics.py</code>, which also runs the
+fits (section 8.6). One card per fit: <code>all</code>, <code>Z_sideband</code>, <code>H_sideband</code>,
+<code>&lt;era&gt;</code>, <code>&lt;era&gt;_Z</code>, <code>&lt;era&gt;_H</code>, in
+<code>combine/results_vbf_selector_ewkz_syst/&lt;no_shape_systematics|systematics&gt;/&lt;dy model&gt;/datacard_&lt;fit&gt;.txt</code>.
+DY models: <code>single</code> (one DY template, free per channel), <code>hard-pu</code> (DY Hard
+and DY PU free per channel), <code>hard-pu-lnn</code> (constrained by the 012J fit);
+<code>run_fit_ewkz_pu_split.py</code> adds <code>hard-pu1-pu2</code> (diagnostic). POI: the EWK Z
+signal strength.</p>
+<h3 id="73-normalisations-of-the-merged-processes">7.3 Normalisations of the merged processes<a class="headerlink" href="#73-normalisations-of-the-merged-processes" title="Permanent link">&para;</a></h3>
+<p>Every background except DY is a sum of datasets (TT = 3, ST = 6, TW = 6,
+VV = 10, VVV = 4, W = 3, TTX = 4, SingleH = 6, ...). <code>--xsec-model per-source</code>
+(default, shared with the VBF selector in <code>combine/xsec_normalisation.py</code>)
+gives each process one lnN per cross-section <strong>source</strong> (<code>xsec_TT</code>, <code>xsec_tW</code>,
+<code>xsec_ST_t</code>, <code>xsec_ST_s</code>, <code>xsec_WW</code>, <code>xsec_WZ</code>, <code>xsec_ZZ</code>, <code>xsec_ggH</code>,
+<code>xsec_qqH</code>, ...):</p>
+<pre><code>kappa = 1 ± Σ_i f_i δ_i
+</code></pre>
+<p>with f_i the yield fraction of dataset i in the channel (read from
+<code>&lt;campaign&gt;/Central/Run3_&lt;era&gt;/&lt;dataset&gt;.root</code>) and δ_i its relative
+uncertainty in <code>config/crossSections13p6TeV.yaml</code>. The same source is the same
+nuisance in every process and era.</p>
+<p>Why not one column per dataset: for a normalisation (lnN) the weighted kappa
+is the same constraint, while splitting the templates gives tens of
+low-statistics columns (each with autoMCStats, empty bins and its own shape
+nuisances) and a much slower fit. Separate columns are worth it only if a
+dataset needs its own <strong>shape</strong> treatment.</p>
+<p>The build log (<code>[XSEC]</code> lines) lists what is missing in the yaml; fix it there,
+and add an alias in <code>XSEC_ALIASES</code> of <code>combine/xsec_normalisation.py</code> when the
+yaml key differs from the dataset name. Gaps on 2026-10-06:</p>
+<table>
+<thead>
+<tr>
+<th>process</th>
+<th>in <code>crossSections13p6TeV.yaml</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W (<code>WtoMuNu</code>, <code>WtoTauNu</code>)</td>
+<td>no uncertainty</td>
+</tr>
+<tr>
+<td>VV, VVV, TTX</td>
+<td>generator integration error only</td>
+</tr>
+<tr>
+<td>EWK Z</td>
+<td>integration error only (±0.5%): to be replaced by the sideband measurement (<a href="../ewkz_fit_motivation/">ewkz_fit_motivation.md</a>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-fits">8. Fits<a class="headerlink" href="#8-fits" title="Permanent link">&para;</a></h2>
+<p>Combine runs from the container: always through <code>run_combine_tool</code> (or the
+scripts below, which use it).</p>
+<h3 id="81-pre-fit-asimov-toysfreq-asimov-data">8.1 Pre-fit Asimov, toysFreq Asimov, data<a class="headerlink" href="#81-pre-fit-asimov-toysfreq-asimov-data" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>mode</th>
+<th>what</th>
+<th>when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asimov</code></td>
+<td><code>-t -1 --expectSignal 1</code>: expected yields with r = 1, nuisances at nominal</td>
+<td>expected sensitivity of the model as simulated</td>
+</tr>
+<tr>
+<td><code>toysfreq</code></td>
+<td>Asimov built after fitting the nuisances to the <strong>data</strong> with r = 1</td>
+<td>expected sensitivity once the model is adjusted to the data</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>the observed data</td>
+<td>sidebands; DNN SR only below 0.8 and only background-only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Blinding.</strong> The DNN SR above 0.8 is never looked at. The one-line
+<code>--toysFreq</code> fits the nuisances to <strong>every</strong> channel, SR above 0.8 included,
+MC-statistics parameters too (the old +7.7% of CC/CF/FF came from that). Use
+<code>fit_suite.py --mode toysfreq --freq-mask '_srhi$'</code> (two steps: a data fit
+with the high SR masked, then the Asimov from that snapshot) or the pre-fit
+Asimov (<code>SE_SIG_OPTS=""</code>). Data fits of the DNN card: background-only, high SR
+masked (<code>--mask '_srhi$' --data-bonly</code>), or the whole SR masked.</p>
+<h3 id="82-significance-limits-impacts-scan-hmumu-combine-fit">8.2 Significance, limits, impacts, scan: <code>./hmumu combine fit</code><a class="headerlink" href="#82-significance-limits-impacts-scan-hmumu-combine-fit" title="Permanent link">&para;</a></h3>
+<p><code>combine/run_signal_extended_fits.sh</code>: builds the card and runs significance
+(total and stat only), limits, FitDiagnostics, impacts, likelihood scan, for
+the chosen DY models.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">IN</span><span class="o">=</span><span class="nv">$HMUMU_HISTOGRAMS</span>/dnn_vbf_eta_regions_syst/Hists_systMerged
+<span class="nv">E</span><span class="o">=</span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026
+<span class="nv">SE_ERAS</span><span class="o">=</span><span class="nv">$E</span><span class="w"> </span><span class="nv">SE_INPUT</span><span class="o">=</span><span class="nv">$IN</span><span class="w"> </span><span class="nv">SE_OUTPUT</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_7eras_v2/base<span class="w"> </span><span class="nv">SE_SIG_OPTS</span><span class="o">=</span><span class="s2">""</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nv">SE_BUILD_ARGS</span><span class="o">=</span><span class="s2">"--eta-categories incl --allow-unmerged"</span><span class="w"> </span>./hmumu<span class="w"> </span>combine<span class="w"> </span>fit<span class="w"> </span>lnn
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>variable</th>
+<th>default</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SE_ERAS</code></td>
+<td>every era with a receipt</td>
+<td>eras</td>
+</tr>
+<tr>
+<td><code>SE_INPUT</code></td>
+<td><code>dnn_vbf_weighted/Hists_systMerged</code></td>
+<td>templates (<strong>set it</strong>)</td>
+</tr>
+<tr>
+<td><code>SE_OUTPUT</code></td>
+<td><code>combine/results_signal_extended</code></td>
+<td>results, <code>&lt;output&gt;/&lt;model&gt;/</code></td>
+</tr>
+<tr>
+<td><code>SE_STEPS</code></td>
+<td><code>build,significance,limits,fitdiagnostics,impacts,scan</code></td>
+<td>steps</td>
+</tr>
+<tr>
+<td><code>SE_BUILD_ARGS</code></td>
+<td>–</td>
+<td>builder options</td>
+</tr>
+<tr>
+<td><code>SE_ASIMOV</code></td>
+<td><code>-t -1 --expectSignal 1</code></td>
+<td>empty = observed data (not with the SR)</td>
+</tr>
+<tr>
+<td><code>SE_SIG_OPTS</code></td>
+<td><code>--toysFreq</code></td>
+<td><code>""</code> = pre-fit Asimov (<strong>use this with the SR</strong>)</td>
+</tr>
+<tr>
+<td><code>SE_RANGE</code></td>
+<td><code>--rMin -5 --rMax 10</code></td>
+<td>r range</td>
+</tr>
+<tr>
+<td><code>SE_PARALLEL</code></td>
+<td>8</td>
+<td>parallel impact fits</td>
+</tr>
+<tr>
+<td><code>SE_POINTS</code></td>
+<td>60</td>
+<td>scan points</td>
+</tr>
+<tr>
+<td><code>SE_FITDIAG_OPTS</code></td>
+<td><code>--saveShapes --saveNormalizations</code></td>
+<td>FitDiagnostics options</td>
+</tr>
+</tbody>
+</table>
+<p>Models: <code>./hmumu combine fit</code> (no argument) = <code>lnn</code>, <code>rateparam-pu</code>,
+<code>rateparam-both</code>; <code>inclusive</code> must be named. Outputs in
+<code>&lt;SE_OUTPUT&gt;/&lt;model&gt;/</code>: card and workspace, <code>significance/</code>, <code>limits/</code>,
+<code>fitdiagnostics/</code>, <code>impacts/</code> (JSON, PDF), <code>scan/</code>. To read the significance:
+<code>grep -h "^Significance" &lt;SE_OUTPUT&gt;/*/significance/*.log</code>.</p>
+<h3 id="83-every-test-on-one-card-combinefit_suitepy">8.3 Every test on one card: <code>combine/fit_suite.py</code><a class="headerlink" href="#83-every-test-on-one-card-combinefit_suitepy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>combine/fit_suite.py<span class="w"> </span>--card<span class="w"> </span>combine/results_X/lnn/datacard.txt<span class="w"> </span>--name<span class="w"> </span>fit<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mode<span class="w"> </span>asimov<span class="w"> </span>toysfreq<span class="w"> </span>--freq-mask<span class="w"> </span><span class="s1">'_srhi$'</span><span class="w"> </span>--range<span class="o">=</span>-5,10<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--pulls<span class="w"> </span>--impacts<span class="w"> </span>--scan<span class="w"> </span>--scan-range<span class="o">=</span>-1,3
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>option</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--mode asimov toysfreq data</code></td>
+<td>one or more (8.1)</td>
+</tr>
+<tr>
+<td><code>--freq-mask REGEX</code></td>
+<td>channels left out of the data fit of <code>toysfreq</code></td>
+</tr>
+<tr>
+<td><code>--mask REGEX</code></td>
+<td>channels masked in the <code>data</code> fit</td>
+</tr>
+<tr>
+<td><code>--data-bonly</code></td>
+<td><code>data</code>: r = 0, no r reported</td>
+</tr>
+<tr>
+<td><code>--range=-5,10</code></td>
+<td>r range</td>
+</tr>
+<tr>
+<td><code>--pulls</code>, <code>--impacts</code>, <code>--scan</code></td>
+<td>the tests</td>
+</tr>
+<tr>
+<td><code>--impacts-parallel 8</code>, <code>--scan-points 40</code>, <code>--scan-range=-1,3</code></td>
+<td>their settings</td>
+</tr>
+<tr>
+<td><code>--no-stat-only</code>, <code>--redo-stat</code></td>
+<td>skip / redo the stat-only fits</td>
+</tr>
+<tr>
+<td><code>--samples N</code></td>
+<td>samples of the uncertainty band</td>
+</tr>
+</tbody>
+</table>
+<p>Next to the card:</p>
+<table>
+<thead>
+<tr>
+<th>file</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>results_&lt;name&gt;.json</code></td>
+<td>r, total and stat-only errors, significance, per mode</td>
+</tr>
+<tr>
+<td><code>postfit_&lt;name&gt;_&lt;mode&gt;.root</code></td>
+<td><code>&lt;channel&gt;_prefit</code>, <code>&lt;channel&gt;_postfit</code> with band (from <code>fit_shapes.py</code>)</td>
+</tr>
+<tr>
+<td><code>pulls_&lt;name&gt;_&lt;mode&gt;.{txt,json}</code></td>
+<td>pull and constraint of every constrained nuisance</td>
+</tr>
+<tr>
+<td><code>impacts_&lt;name&gt;_&lt;mode&gt;/impacts.{json,pdf}</code></td>
+<td>impacts</td>
+</tr>
+<tr>
+<td><code>scan_&lt;name&gt;_&lt;mode&gt;/scan.{pdf,png}</code></td>
+<td>likelihood scan, total and stat only</td>
+</tr>
+</tbody>
+</table>
+<p>Stat-only fits freeze every constrained nuisance, run without <code>--robustFit</code>
+and with rMin = 0 (negative r gives negative yields). Pre/post-fit shapes come
+from <code>combine/fit_shapes.py</code> (bin-by-bin evaluation of the workspace, band by
+sampling), not from FitDiagnostics <code>--saveWithUncertainties</code> or
+PostFitShapesFromWorkspace, which take hours (19 h on 7 eras).</p>
+<p>Plots from the shapes:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>combine/plot_postfit_shapes.py<span class="w"> </span>combine/results_X/lnn/postfit_fit_asimov.root<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;dir&gt;<span class="w"> </span>--xlabel<span class="w"> </span><span class="s2">"DNN score"</span><span class="w"> </span>--blind<span class="w"> </span><span class="s1">'_srhi$'</span>
+<span class="c1"># data fit: post-fit only in the sidebands</span>
+python3<span class="w"> </span>combine/plot_postfit_shapes.py<span class="w"> </span>&lt;card<span class="w"> </span>dir&gt;/postfit_fit_data.root<span class="w"> </span>--output<span class="w"> </span>&lt;dir&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--xlabel<span class="w"> </span><span class="s2">"DNN score"</span><span class="w"> </span>--blind<span class="w"> </span><span class="s1">'_srhi$'</span><span class="w"> </span>--postfit-regions<span class="w"> </span>zsb,hsb
+</code></pre></div>
+<h3 id="84-the-fit-matrix-every-era-and-region-combination-every-dy-model">8.4 The fit matrix: every era and region combination, every DY model<a class="headerlink" href="#84-the-fit-matrix-every-era-and-region-combination-every-dy-model" title="Permanent link">&para;</a></h3>
+<p><code>combine/run_fit_matrix.sh</code> builds the DNN cards and runs <code>fit_suite.py</code> on
+every scope (each era alone and all eras), DY model and mode; it also runs
+the VBF-selector cards; then <code>summarize_fit_matrix.py</code> writes <code>SUMMARY.md</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">FM_DNN_BUILD_ARGS</span><span class="o">=</span><span class="s2">"--input </span><span class="nv">$HMUMU_HISTOGRAMS</span><span class="s2">/dnn_vbf_eta_regions_syst/Hists_systMerged --eta-categories incl --allow-unmerged"</span><span class="w"> </span><span class="se">\</span>
+<span class="nv">FM_OUTPUT</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_fit_matrix_v2<span class="w"> </span><span class="nv">FM_PLOTS</span><span class="o">=</span><span class="nv">$HMUMU_WWW</span>/skim_v4/fits/fit_matrix<span class="w"> </span><span class="se">\</span>
+<span class="nv">FM_PARALLEL</span><span class="o">=</span><span class="m">4</span><span class="w"> </span>nohup<span class="w"> </span>bash<span class="w"> </span>combine/run_fit_matrix.sh<span class="w"> </span>dnn<span class="w"> </span>&gt;<span class="w"> </span>fm_dnn.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+
+<span class="nv">FM_VBFSEL_DIR</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_vbf_selector_ewkz_syst/systematics<span class="w"> </span><span class="se">\</span>
+<span class="nv">FM_OUTPUT</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_fit_matrix_v2<span class="w"> </span>nohup<span class="w"> </span>bash<span class="w"> </span>combine/run_fit_matrix.sh<span class="w"> </span>vbfsel<span class="w"> </span>&gt;<span class="w"> </span>fm_vbfsel.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+
+<span class="nv">FM_OUTPUT</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_fit_matrix_v2<span class="w"> </span>python3<span class="w"> </span>combine/summarize_fit_matrix.py
+bash<span class="w"> </span>combine/run_fit_matrix.sh<span class="w"> </span>replot<span class="w">                 </span><span class="c1"># redo shapes and plots only</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>analysis</th>
+<th>channels</th>
+<th>DY models</th>
+<th>modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNN <code>dnn_sr</code>, <code>dnn_sr_hsb</code></td>
+<td>SR; SR + H sideband</td>
+<td><code>inclusive</code>, <code>lnn</code>, <code>rateparam-pu</code>, <code>rateparam-both</code></td>
+<td><code>asimov</code>, <code>toysfreq</code></td>
+</tr>
+<tr>
+<td>DNN <code>dnn_sr_hsb_zsb</code></td>
+<td>SR + H + Z sideband</td>
+<td>same</td>
+<td><code>data</code>, background-only, SR masked</td>
+</tr>
+<tr>
+<td>VBF selector</td>
+<td>Z, H, Z + H, per era</td>
+<td><code>single</code>, <code>hard-pu</code>, <code>hard-pu-lnn</code></td>
+<td><code>asimov</code>, <code>toysfreq</code>, <code>data</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>variable</th>
+<th>default</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FM_OUTPUT</code></td>
+<td><code>combine/results_fit_matrix</code></td>
+<td>results</td>
+</tr>
+<tr>
+<td><code>FM_PLOTS</code></td>
+<td><code>$HMUMU_WWW/skim_v4/fits/fit_matrix</code></td>
+<td>plots</td>
+</tr>
+<tr>
+<td><code>FM_ERAS</code></td>
+<td>all seven</td>
+<td>eras</td>
+</tr>
+<tr>
+<td><code>FM_SCOPES</code></td>
+<td>every era + <code>all</code></td>
+<td>scopes to run</td>
+</tr>
+<tr>
+<td><code>FM_DNN_CHANNELS</code>, <code>FM_DNN_MODELS</code>, <code>FM_VBFSEL_MODELS</code></td>
+<td>all</td>
+<td>subsets</td>
+</tr>
+<tr>
+<td><code>FM_DNN_BUILD_ARGS</code></td>
+<td>–</td>
+<td>builder options (input, η categories, ...)</td>
+</tr>
+<tr>
+<td><code>FM_VBFSEL_DIR</code></td>
+<td><code>.../no_shape_systematics</code></td>
+<td>VBF-selector cards</td>
+</tr>
+<tr>
+<td><code>FM_MODES</code></td>
+<td>all</td>
+<td>modes</td>
+</tr>
+<tr>
+<td><code>FM_TESTS</code></td>
+<td><code>--pulls --scan</code></td>
+<td>tests on every fit</td>
+</tr>
+<tr>
+<td><code>FM_IMPACTS_SCOPES</code></td>
+<td><code>all</code></td>
+<td>scopes with impacts (~150 fits each)</td>
+</tr>
+<tr>
+<td><code>FM_PARALLEL</code></td>
+<td>6</td>
+<td>parallel fits</td>
+</tr>
+</tbody>
+</table>
+<p>Results in <code>&lt;FM_OUTPUT&gt;/&lt;analysis&gt;/&lt;model&gt;/&lt;scope&gt;/</code>, plots in
+<code>&lt;FM_PLOTS&gt;/&lt;analysis&gt;/&lt;model&gt;/&lt;scope&gt;/&lt;mode&gt;/</code> (<code>prefit_&lt;region&gt;_&lt;era&gt;</code>,
+<code>postfit_&lt;region&gt;_&lt;era&gt;</code>).</p>
+<h3 id="85-plain-combine-by-hand">8.5 Plain combine, by hand<a class="headerlink" href="#85-plain-combine-by-hand" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;card<span class="w"> </span>dir&gt;
+run_combine_tool<span class="w"> </span>text2workspace.py<span class="w"> </span>datacard.txt<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-o<span class="w"> </span>ws.root<span class="w"> </span>--channel-masks
+<span class="c1"># expected significance, total and stat only</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>Significance<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>Significance<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--freezeParameters<span class="w"> </span>allConstrainedNuisances
+<span class="c1"># expected limit</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>AsymptoticLimits<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--rMin<span class="w"> </span>-5<span class="w"> </span>--rMax<span class="w"> </span><span class="m">10</span>
+<span class="c1"># r and its error, total and stat only</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>MultiDimFit<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--algo<span class="w"> </span>singles<span class="w"> </span>--robustFit<span class="w"> </span><span class="m">1</span><span class="w"> </span>--saveWorkspace<span class="w"> </span>-n<span class="w"> </span>.best
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>MultiDimFit<span class="w"> </span>higgsCombine.best.MultiDimFit.mH125.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span>--snapshotName<span class="w"> </span>MultiDimFit<span class="w"> </span>--algo<span class="w"> </span>singles<span class="w"> </span>--rMin<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--freezeParameters<span class="w"> </span>allConstrainedNuisances<span class="w"> </span>-n<span class="w"> </span>.stat
+<span class="c1"># freeze a group: --freezeNuisanceGroups autoMCStats, or --freezeParameters a,b</span>
+<span class="c1"># impacts (~160 fits; --job-mode condor for the 7-era cards)</span>
+run_combine_tool<span class="w"> </span>combineTool.py<span class="w"> </span>-M<span class="w"> </span>Impacts<span class="w"> </span>-d<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span>--robustFit<span class="w"> </span><span class="m">1</span><span class="w"> </span>--doInitialFit
+run_combine_tool<span class="w"> </span>combineTool.py<span class="w"> </span>-M<span class="w"> </span>Impacts<span class="w"> </span>-d<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span>--robustFit<span class="w"> </span><span class="m">1</span><span class="w"> </span>--doFits<span class="w"> </span>--parallel<span class="w"> </span><span class="m">8</span>
+run_combine_tool<span class="w"> </span>combineTool.py<span class="w"> </span>-M<span class="w"> </span>Impacts<span class="w"> </span>-d<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-o<span class="w"> </span>impacts.json
+run_combine_tool<span class="w"> </span>plotImpacts.py<span class="w"> </span>-i<span class="w"> </span>impacts.json<span class="w"> </span>-o<span class="w"> </span>impacts
+<span class="c1"># likelihood scan, total and stat only</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>MultiDimFit<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span>--algo<span class="w"> </span>grid<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--points<span class="w"> </span><span class="m">40</span><span class="w"> </span>--rMin<span class="w"> </span>-1<span class="w"> </span>--rMax<span class="w"> </span><span class="m">3</span><span class="w"> </span>--saveWorkspace<span class="w"> </span>-n<span class="w"> </span>.scan
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>MultiDimFit<span class="w"> </span>higgsCombine.scan.MultiDimFit.mH125.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span>-t<span class="w"> </span>-1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--expectSignal<span class="w"> </span><span class="m">1</span><span class="w"> </span>--algo<span class="w"> </span>grid<span class="w"> </span>--points<span class="w"> </span><span class="m">40</span><span class="w"> </span>--rMin<span class="w"> </span>-1<span class="w"> </span>--rMax<span class="w"> </span><span class="m">3</span><span class="w"> </span>--snapshotName<span class="w"> </span>MultiDimFit<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--freezeParameters<span class="w"> </span>allConstrainedNuisances<span class="w"> </span>-n<span class="w"> </span>.scanstat
+run_combine_tool<span class="w"> </span>plot1DScan.py<span class="w"> </span>higgsCombine.scan.MultiDimFit.mH125.root<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--others<span class="w"> </span><span class="s2">"higgsCombine.scanstat.MultiDimFit.mH125.root:StatOnly:2"</span><span class="w"> </span>-o<span class="w"> </span>scan
+<span class="c1"># data, background only, high-score SR masked (one mask per era)</span>
+run_combine_tool<span class="w"> </span>combine<span class="w"> </span>-M<span class="w"> </span>FitDiagnostics<span class="w"> </span>ws.root<span class="w"> </span>-m<span class="w"> </span><span class="m">125</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--setParameters<span class="w"> </span><span class="nv">r</span><span class="o">=</span><span class="m">0</span>,mask_y2024_srhi<span class="o">=</span><span class="m">1</span><span class="w"> </span>--freezeParameters<span class="w"> </span>r<span class="w"> </span>--skipSBFit<span class="w"> </span>-n<span class="w"> </span>.bonly
+<span class="c1"># pre/post-fit shapes and band</span>
+run_combine_tool<span class="w"> </span>python3<span class="w"> </span>combine/fit_shapes.py<span class="w"> </span>--workspace<span class="w"> </span>ws.root<span class="w"> </span>--card<span class="w"> </span>datacard.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--fit-result<span class="w"> </span>fitDiagnostics.bonly.root:fit_b<span class="w"> </span>--output<span class="w"> </span>shapes.root
+</code></pre></div>
+<p>Pulls: <code>fit_suite.py --pulls</code> (it reads the FitDiagnostics result and writes
+pull and constraint of every constrained nuisance).</p>
+<h3 id="86-vbf-selector-the-ewk-z-fit">8.6 VBF selector: the EWK Z fit<a class="headerlink" href="#86-vbf-selector-the-ewk-z-fit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
+<span class="nv">E</span><span class="o">=</span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026
+<span class="c1"># templates: section 6.3 with C=vbf_selector_ewkz</span>
+python3<span class="w"> </span>studies/vbf_selector/fit_ewkz_systematics.py<span class="w"> </span>--no-shape-systematics<span class="w">   </span><span class="c1"># Central only (Central_hadded)</span>
+python3<span class="w"> </span>studies/vbf_selector/fit_ewkz_systematics.py<span class="w"> </span>--allow-unmerged<span class="w">         </span><span class="c1"># every systematic</span>
+<span class="c1">#   --dy-models hard-pu,hard-pu-lnn,single   --eras 2024,2025   --no-impacts</span>
+<span class="nv">FM_VBFSEL_DIR</span><span class="o">=</span><span class="nv">$PWD</span>/combine/results_vbf_selector_ewkz_syst/systematics<span class="w"> </span>bash<span class="w"> </span>combine/run_fit_matrix.sh<span class="w"> </span>vbfsel
+python3<span class="w"> </span>studies/vbf_selector/plot_prefit_ratio_by_era.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>combine/results_fit_matrix/vbfsel_systematics/hard-pu/all/postfit_fit_data.root<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/skim_v4/fits/fit_matrix/vbfsel_systematics/prefit_ratio_by_era
+</code></pre></div>
+<p><code>fit_ewkz_systematics.py</code> writes the cards, runs r, stat only, significance,
+FitDiagnostics and the impacts of the all-era fit, and
+<code>results.{json,md}</code> per DY model. The quick version from the training tuples,
+without systematics, is <code>fit_ewkz_sidebands.py --stage prepare</code> (LCG
+environment) then <code>--stage fit</code> (<code>env.sh</code>). The training of the selector
+itself is in <a href="../studies/vbf_selector/README.md">studies/vbf_selector/README.md</a>.</p>
+<hr />
+<h2 id="9-recipes-case-by-case">9. Recipes, case by case<a class="headerlink" href="#9-recipes-case-by-case" title="Permanent link">&para;</a></h2>
+<p>Common prefix for all the DNN recipes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
+<span class="nv">IN</span><span class="o">=</span><span class="nv">$HMUMU_HISTOGRAMS</span>/dnn_vbf_eta_regions_syst/Hists_systMerged
+<span class="nv">E</span><span class="o">=</span><span class="m">2022</span>,2022EE,2023,2023BPix,2024,2025,2026
+<span class="nv">B</span><span class="o">=</span><span class="s2">"--input </span><span class="nv">$IN</span><span class="s2"> --allow-unmerged"</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>case</th>
+<th>command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Expected significance, SR + H sideband, 7 eras, one DY model</strong></td>
+<td><code>SE_ERAS=$E SE_INPUT=$IN SE_OUTPUT=$PWD/combine/results_7eras_v2/base SE_SIG_OPTS="" SE_BUILD_ARGS="--eta-categories incl --allow-unmerged" ./hmumu combine fit lnn</code></td>
+</tr>
+<tr>
+<td>the four DY models in parallel</td>
+<td><code>for m in lnn rateparam-pu rateparam-both inclusive; do SE_ERAS=$E ... nohup ./hmumu combine fit $m &gt; fit_$m.log 2&gt;&amp;1 &amp; done</code></td>
+</tr>
+<tr>
+<td><strong>SR only</strong></td>
+<td>same with <code>SE_BUILD_ARGS="--eta-categories incl --allow-unmerged --channels sr"</code></td>
+</tr>
+<tr>
+<td><strong>DY scales shape-only</strong></td>
+<td><code>SE_BUILD_ARGS="--eta-categories incl --allow-unmerged --dy-scale-shape-only"</code> (not <code>inclusive</code>)</td>
+</tr>
+<tr>
+<td><strong>SR only + DY scales shape-only</strong></td>
+<td><code>SE_BUILD_ARGS="--eta-categories incl --allow-unmerged --channels sr --dy-scale-shape-only"</code></td>
+</tr>
+<tr>
+<td><strong>CC / CF / FF</strong></td>
+<td><code>SE_BUILD_ARGS="--eta-categories CC,CF,FF --allow-unmerged"</code>; compare with <code>incl</code></td>
+</tr>
+<tr>
+<td><strong>one era</strong></td>
+<td><code>SE_ERAS=2024 ...</code>, or <code>fit_suite.py</code> on a card built with <code>--eras 2024</code></td>
+</tr>
+<tr>
+<td><strong>every era alone and combined, all models, pulls/scans/plots</strong></td>
+<td>the fit matrix, 8.4</td>
+</tr>
+<tr>
+<td><strong>toysFreq Asimov without unblinding</strong></td>
+<td><code>fit_suite.py --mode toysfreq --freq-mask '_srhi$'</code> on a card with <code>--blind-split 0.8</code></td>
+</tr>
+<tr>
+<td><strong>sideband data fit, post-fit plots</strong></td>
+<td>card with <code>--channels sr,hsb,zsb --blind-split 0.8</code>, then <code>fit_suite.py --mode data --mask '_sr[lh][oi]$' --data-bonly</code> and <code>plot_postfit_shapes.py --postfit-regions zsb,hsb</code></td>
+</tr>
+<tr>
+<td><strong>impacts of one card</strong></td>
+<td><code>fit_suite.py --card ... --mode asimov --impacts</code> or 8.5</td>
+</tr>
+<tr>
+<td><strong>stat-only error / significance</strong></td>
+<td>in <code>results_&lt;name&gt;.json</code> of <code>fit_suite.py</code>, or <code>--freezeParameters allConstrainedNuisances</code></td>
+</tr>
+<tr>
+<td><strong>without MC-stat uncertainty</strong></td>
+<td><code>--freezeNuisanceGroups autoMCStats</code></td>
+</tr>
+<tr>
+<td><strong>one rateParam for all eras</strong></td>
+<td><code>SE_BUILD_ARGS="... --rateparam-scope all" ./hmumu combine fit rateparam-both</code></td>
+</tr>
+<tr>
+<td><strong>old cross-section treatment</strong></td>
+<td><code>--xsec-model per-process</code></td>
+</tr>
+<tr>
+<td><strong>EWK Z in the sidebands (VBF selector)</strong></td>
+<td>8.6</td>
+</tr>
+<tr>
+<td><strong>systematic shape plots</strong></td>
+<td>10.3</td>
+</tr>
+<tr>
+<td><strong>Data/MC plots of a campaign</strong></td>
+<td>10.1</td>
+</tr>
+</tbody>
+</table>
+<p>Example, the CC/CF/FF fit with full systematics, by hand:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>combine/build_signal_extended_datacards.py<span class="w"> </span><span class="nv">$B</span><span class="w"> </span>--eras<span class="w"> </span><span class="nv">$E</span><span class="w"> </span>--eta-categories<span class="w"> </span>CC,CF,FF<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--dy-model<span class="w"> </span>lnn<span class="w"> </span>--channels<span class="w"> </span>sr,hsb<span class="w"> </span>--blind-split<span class="w"> </span><span class="m">0</span>.8<span class="w"> </span>--output<span class="w"> </span>combine/results_X/cccfff/datacard.txt
+python3<span class="w"> </span>combine/fit_suite.py<span class="w"> </span>--card<span class="w"> </span>combine/results_X/cccfff/datacard.txt<span class="w"> </span>--name<span class="w"> </span>fit<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mode<span class="w"> </span>asimov<span class="w"> </span>toysfreq<span class="w"> </span>--freq-mask<span class="w"> </span><span class="s1">'_srhi'</span><span class="w"> </span>--range<span class="o">=</span>-5,10<span class="w"> </span>--pulls<span class="w"> </span>--impacts<span class="w"> </span>--scan
+</code></pre></div>
+<hr />
+<h2 id="10-plots">10. Plots<a class="headerlink" href="#10-plots" title="Permanent link">&para;</a></h2>
+<p>The plotter is <code>plotting_tools/hist_plotter.py</code> (stack, data, ratio, MC-stat
+and systematic bands, jet-component panels). Plots go to the web area
+(<code>$HMUMU_WWW</code>), not to the repository.</p>
+<h3 id="101-every-plot-of-a-campaign">10.1 Every plot of a campaign<a class="headerlink" href="#101-every-plot-of-a-campaign" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>plot<span class="w"> </span>--mode<span class="w"> </span>central<span class="w"> </span>--eras<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--check-level<span class="w"> </span>files<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--plot-regions<span class="w"> </span>Signal_Fit,Z_sideband,H_sideband<span class="w"> </span>--plot-categories<span class="w"> </span>VBF,ggF<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--plot-output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/central<span class="w">                         </span><span class="c1"># no systematics</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>plot<span class="w"> </span>--mode<span class="w"> </span>central<span class="w"> </span>--eras<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--check-level<span class="w"> </span>files<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--component-composition<span class="w"> </span>--plot-output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/components<span class="w">   </span><span class="c1"># + jet-component fractions</span>
+./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>plot<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--eras<span class="w"> </span><span class="m">2025</span><span class="w"> </span>--check-level<span class="w"> </span>files<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--plot-output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/systematics<span class="w">                      </span><span class="c1"># + systematic bands (after merge-syst)</span>
+</code></pre></div>
+<p><code>--mode both</code> reads <code>Hists_systMerged</code> and adds the bands; <code>merge-syst</code> needs
+the hadd of Central and of <strong>every</strong> family. <code>--plot-regions</code> /
+<code>--plot-categories</code> choose what is drawn without touching the production. For
+the DNN campaigns, repeat <code>--regions Z_sideband,Signal_Fit,H_sideband --categories VBF</code>.</p>
+<p>Merged eras:</p>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>merge-era<span class="w"> </span>--mode<span class="w"> </span>central<span class="w"> </span>--eras<span class="w"> </span><span class="m">2022</span>,2023<span class="w"> </span>--merged-era<span class="w"> </span>Run3_2022_2023<span class="w"> </span>--check-level<span class="w"> </span>files
+./hmumu<span class="w"> </span>hist<span class="w"> </span>all_variables<span class="w"> </span>plot<span class="w"> </span>--mode<span class="w"> </span>central<span class="w"> </span>--merged<span class="w"> </span>--eras<span class="w"> </span><span class="m">2022</span>,2023<span class="w"> </span>--merged-era<span class="w"> </span>Run3_2022_2023<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--check-level<span class="w"> </span>files<span class="w"> </span>--plot-output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/merged
+</code></pre></div>
+<p><code>merge-era</code> needs a complete <code>Central_hadded</code> for every era; categories that
+exist only in some eras appear in the union.</p>
+<h3 id="102-one-region-chosen-samples">10.2 One region, chosen samples<a class="headerlink" href="#102-one-region-chosen-samples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>plot<span class="w"> </span>--era<span class="w"> </span><span class="m">2024</span><span class="w"> </span>--input<span class="w"> </span><span class="nv">$HMUMU_HISTOGRAMS</span>/all_variables/Hists_systMerged/Run3_2024<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/Run3_2024<span class="w"> </span>--region<span class="w"> </span>Signal_Fit_VBF<span class="w"> </span>--variable<span class="w"> </span>m_jj<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--samples<span class="w"> </span>Data_Muon<span class="w"> </span>DYto2Mu_MLL105To160<span class="w"> </span>EWK_2Mu2J_MLL_105to160_herwig<span class="w"> </span>TT<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data<span class="w"> </span>--systematics<span class="w"> </span>--total-systematics<span class="w"> </span>--run
+</code></pre></div>
+<p>Without <code>--run</code> it prints the command. Samples are file names without <code>.root</code>,
+processes or plotting groups; other options: <code>--component-composition</code>,
+<code>--log-y</code>, <code>--rebin</code>, <code>--overlay-systematic</code>, <code>--systematic-group</code>.</p>
+<h3 id="103-systematic-shapes-sample-by-sample-and-source-by-source">10.3 Systematic shapes, sample by sample and source by source<a class="headerlink" href="#103-systematic-shapes-sample-by-sample-and-source-by-source" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">IN</span><span class="o">=</span><span class="nv">$HMUMU_HISTOGRAMS</span>/dnn_vbf_eta_regions_syst/Hists_systMerged
+<span class="nv">OUT</span><span class="o">=</span><span class="nv">$HMUMU_WWW</span>/skim_v4/dnn/systematic_shapes
+<span class="nv">SAMPLES</span><span class="o">=</span>DYto2Mu_MLL105To160,DYto2Mu_MLL105To160_2J_Hard,DYto2Mu_MLL105To160_2J_PU1,DYto2Mu_MLL105To160_2J_PU2,EWK_2Mu2J_MLL_105to160_herwig,ST,VV,TT,TTX,VVV,W,TW,SingleH,GluGluHto2Mu,VBFHto2Mu_M125_powheg
+<span class="k">for</span><span class="w"> </span>region<span class="w"> </span><span class="k">in</span><span class="w"> </span>Signal_Fit_VBF<span class="w"> </span>H_sideband_VBF<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>cat<span class="w"> </span><span class="k">in</span><span class="w"> </span>incl<span class="w"> </span>CC<span class="w"> </span>CF<span class="w"> </span>FF<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>python3<span class="w"> </span>plotting_tools/plot_systematics_campaign.py<span class="w"> </span>--input-base<span class="w"> </span><span class="nv">$IN</span><span class="w"> </span>--output<span class="w"> </span><span class="nv">$OUT</span>/<span class="nv">$cat</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--region<span class="w"> </span><span class="nv">$region</span>/<span class="nv">$cat</span><span class="w"> </span>--sample<span class="w"> </span><span class="nv">$SAMPLES</span><span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--run
+<span class="w">  </span><span class="k">done</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>One plot per era, sample and group (<code>Jet Res</code>, <code>Jet Scale</code>, <code>Pileup</code>,
+<code>Muon Eff.</code>, <code>Muon Res</code>, <code>Muon Scale</code>, <code>EWKZ PS</code>, <code>QCDScale</code>, <code>PDF</code>; choose
+with <code>--systematic-group</code>), plus <code>all_samples/</code>. <code>--era Run3_2024</code> restricts
+the eras, <code>--variable</code> the variable. Failed plots are listed at the end
+without stopping the others.</p>
+<h3 id="104-prepost-fit-plots">10.4 Pre/post-fit plots<a class="headerlink" href="#104-prepost-fit-plots" title="Permanent link">&para;</a></h3>
+<p>From the fits: 8.3 (<code>plot_postfit_shapes.py</code>), automatic in the fit matrix.
+For the VBF selector also <code>studies/vbf_selector/plot_fit_shapes.py
+fitDiagnostics.all.root --output &lt;dir&gt; --per-channel</code> and
+<code>plot_prefit_ratio_by_era.py</code> (data/prediction versus the selector score).</p>
+<h3 id="105-blinding">10.5 Blinding<a class="headerlink" href="#105-blinding" title="Permanent link">&para;</a></h3>
+<p><code>blind_range</code> per variable in <code>config/plot/histograms.yaml</code>, keyed on
+<code>&lt;region&gt;_&lt;category&gt;</code>:</p>
+<table>
+<thead>
+<tr>
+<th>variable</th>
+<th>hidden</th>
+<th>range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>m_mumu</code></td>
+<td><code>Signal_Fit_*</code>, <code>mass_inclusive_*</code>, <code>H_sideband_*</code>, <code>Signal_ext_*</code></td>
+<td>120–130 GeV</td>
+</tr>
+<tr>
+<td><code>DNN_NNOutput</code></td>
+<td><code>Signal_Fit_*</code>, <code>mass_inclusive_*</code></td>
+<td>0.8–1.0</td>
+</tr>
+</tbody>
+</table>
+<p>A missing key is not an error and hides nothing: check <code>grep BLIND</code> in the
+plot log. Existing plots do not update after a change. Fit plots blind with
+<code>--blind '_srhi$'</code>.</p>
+<h3 id="106-reproduce-every-plot">10.6 Reproduce every plot<a class="headerlink" href="#106-reproduce-every-plot" title="Permanent link">&para;</a></h3>
+<p><code>plotting_tools/all_plots.sh</code> draws every plot of the analysis into one web
+tree, <code>$HMUMU_WWW/skim_v4/</code> (<code>WEB=...</code> to change it). It only reads histograms
+and fit outputs: it submits nothing and never touches templates or payloads.</p>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>plotting_tools/all_plots.sh<span class="w"> </span>list<span class="w">                         </span><span class="c1"># stages and inputs</span>
+nohup<span class="w"> </span>bash<span class="w"> </span>plotting_tools/all_plots.sh<span class="w"> </span>all<span class="w"> </span>&gt;<span class="w"> </span>all_plots.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+bash<span class="w"> </span>plotting_tools/all_plots.sh<span class="w"> </span>dnn<span class="w"> </span>dnn-eta<span class="w"> </span>syst-shapes<span class="w">      </span><span class="c1"># some stages</span>
+<span class="nv">PLOT_JOBS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="nv">ERAS</span><span class="o">=</span><span class="s2">"2024 2025"</span><span class="w"> </span>bash<span class="w"> </span>plotting_tools/all_plots.sh<span class="w"> </span>data-mc
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>stage</th>
+<th>input</th>
+<th>output under <code>$HMUMU_WWW/skim_v4/</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data-mc</code></td>
+<td><code>all_variables/Hists_systMerged</code></td>
+<td><code>data_mc/all_variables/{systematics,components}/&lt;era&gt;</code></td>
+</tr>
+<tr>
+<td><code>data-mc-merged</code></td>
+<td><code>all_variables/Hists_systMerged</code> of every era, <strong>summed at plot time</strong> (<code>hist_plotter.py --era-inputs</code>: nominal summed, each era-specific variation = summed nominal + its shift; no merged file)</td>
+<td><code>data_mc/all_variables/systematics_merged/Run3_2022_2026</code></td>
+</tr>
+<tr>
+<td><code>vbf-eta-merged</code></td>
+<td><code>vbf_eta_regions/Central_hadded</code>, summed the same way</td>
+<td><code>data_mc/vbf_eta_regions_merged/Run3_2022_2026</code></td>
+</tr>
+<tr>
+<td><code>vbf-eta</code></td>
+<td><code>vbf_eta_regions/Central_hadded</code></td>
+<td><code>data_mc/vbf_eta_regions/&lt;era&gt;</code></td>
+</tr>
+<tr>
+<td><code>dnn</code></td>
+<td><code>dnn_vbf/Hists_systMerged</code></td>
+<td><code>dnn/data_mc/{systematics,components}/&lt;era&gt;</code></td>
+</tr>
+<tr>
+<td><code>dnn-eta</code></td>
+<td><code>dnn_vbf_eta_regions_syst/Hists_systMerged</code></td>
+<td><code>dnn/eta_regions/&lt;era&gt;</code></td>
+</tr>
+<tr>
+<td><code>syst-shapes</code></td>
+<td>the two DNN campaigns</td>
+<td><code>dnn/systematic_shapes/&lt;region&gt;/&lt;cat&gt;</code></td>
+</tr>
+<tr>
+<td><code>dy-weights</code></td>
+<td><code>$HMUMU_DY_WEIGHT_HISTOGRAMS</code>; the fits are redone with the payload written to a scratch directory</td>
+<td><code>dy_weights/&lt;stage&gt;/&lt;era&gt;</code></td>
+</tr>
+<tr>
+<td><code>fits</code></td>
+<td><code>combine/results_fit_matrix_v2</code>, <code>combine/results_7eras_v2</code></td>
+<td><code>fits/...</code></td>
+</tr>
+<tr>
+<td><code>horn-veto</code></td>
+<td><code>horn_veto_dyincl{,_dy_unweighted}</code>, <code>horn_veto_etaphi</code></td>
+<td><code>studies/horn_veto/</code></td>
+</tr>
+<tr>
+<td><code>flashsim</code></td>
+<td><code>all_variables/Hists_systMerged</code>, 2024–2026</td>
+<td><code>studies/flashsim_comparison/</code></td>
+</tr>
+<tr>
+<td><code>dnn-studies</code></td>
+<td><code>dnn_vbf</code>, <code>dnn_vbf_dy_unweighted</code>, skims (ROC)</td>
+<td><code>studies/dnn/</code></td>
+</tr>
+<tr>
+<td><code>muon-checks</code></td>
+<td>skims (slow)</td>
+<td><code>studies/muon_checks/</code></td>
+</tr>
+</tbody>
+</table>
+<p>Plots written by the studies themselves (VBF selector: <code>evaluate.py</code>,
+<code>shap_per_era.py</code>, <code>fit_ewkz_*.py</code>; VBF pair: <code>compare_*.py</code>) go by default to
+<code>$HMUMU_WWW/skim_v4/studies/&lt;study&gt;/</code>; their commands are in the study
+READMEs. Logs: <code>results/all_plots_logs/&lt;date&gt;/</code>. What exists and where:
+<a href="../inventario_istogrammi/">inventario_istogrammi.md</a>.</p>
+<hr />
+<h2 id="11-chain-and-status">11. Chain and status<a class="headerlink" href="#11-chain-and-status" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>./hmumu<span class="w"> </span>status<span class="w">                            </span><span class="c1"># every campaign and era: first blocking stage</span>
+./hmumu<span class="w"> </span>status<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>,2025<span class="w"> </span>--detail<span class="w">  </span><span class="c1"># incomplete families</span>
+./hmumu<span class="w"> </span>status<span class="w"> </span>--campaign<span class="w"> </span>dnn_vbf<span class="w"> </span>--next<span class="w">  </span><span class="c1"># next action per era</span>
+nohup<span class="w"> </span>./hmumu<span class="w"> </span>chain<span class="w"> </span>all<span class="w"> </span>&gt;<span class="w"> </span>chain.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+./hmumu<span class="w"> </span>chain<span class="w"> </span>dnn-vbf<span class="w"> </span>--eras<span class="w"> </span><span class="m">2024</span>,2025<span class="w">    </span><span class="c1"># one stage</span>
+</code></pre></div>
+<p><code>status</code> follows skim → manifest → DY payloads → Central → syst → hadd →
+merge-syst with the same functions as the campaign engine, and flags <code>STALE</code>
+products (older than an input). With <code>--campaign</code> and <code>--eras</code> it takes
+seconds instead of minutes.</p>
+<table>
+<thead>
+<tr>
+<th>chain stage</th>
+<th>runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dy-weights</code></td>
+<td><code>validate</code>, then <code>dy-weights run</code> until the three payloads are done</td>
+</tr>
+<tr>
+<td><code>all-variables</code></td>
+<td><code>hist all_variables</code>: submit, hadd, merge-syst, plot</td>
+</tr>
+<tr>
+<td><code>dnn-vbf</code></td>
+<td>the same for <code>hist dnn_vbf</code></td>
+</tr>
+<tr>
+<td><code>vbf-eta</code></td>
+<td><code>hist vbf_eta_regions</code>, <code>hist dnn_vbf_eta_regions</code></td>
+</tr>
+<tr>
+<td><code>dnn-studies</code></td>
+<td><code>study dnn</code></td>
+</tr>
+<tr>
+<td><code>flashsim</code></td>
+<td><code>studies/flashsim/compare_flashsim.py</code> per era</td>
+</tr>
+</tbody>
+</table>
+<p>Options: <code>--eras</code>, <code>--plot-output</code>, <code>--hadd-jobs</code>, <code>--poll</code>. The chain does
+not include <code>dnn_vbf_eta_regions_syst</code>, <code>vbf_selector_ewkz</code> or the fits: run
+them as in 6.3 and 8. Never run two chains, or a chain and the same campaign
+by hand.</p>
+<hr />
+<h2 id="12-studies">12. Studies<a class="headerlink" href="#12-studies" title="Permanent link">&para;</a></h2>
+<p>One directory per study in <code>studies/</code> with a README (question, method,
+command, result); results summarised in <a href="../status/">status.md</a>.</p>
+<table>
+<thead>
+<tr>
+<th>study</th>
+<th>question</th>
+<th>run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../studies/dnn/README.md">dnn</a></td>
+<td>DNN binning, performance with/without DY weights, ROC, sensitivity vs bins</td>
+<td><code>./hmumu study dnn {binning,sensitivity,performance,roc,studies}</code></td>
+</tr>
+<tr>
+<td><a href="../studies/dnn/retraining/README.md">dnn/retraining</a></td>
+<td>DNN retrained on seven eras</td>
+<td><code>run_folds.sh</code></td>
+</tr>
+<tr>
+<td><a href="../studies/vbf_selector/README.md">vbf_selector</a></td>
+<td>VBF-vs-rest classifier; EWK Z in the sidebands</td>
+<td>section 8.6</td>
+</tr>
+<tr>
+<td><a href="../studies/sensitivity_levers/README.md">sensitivity_levers</a></td>
+<td>where significance is lost; CC/CF/FF</td>
+<td><code>./hmumu combine fit</code>, <code>central_cards.py</code>, <code>patch_scale_V.py</code></td>
+</tr>
+<tr>
+<td><a href="../studies/horn_veto/README.md">horn_veto</a></td>
+<td>jet horn veto in 2025/2026</td>
+<td><code>./hmumu hist jet_horn_veto submit\|finish</code>, <code>horn_veto_summary.py</code></td>
+</tr>
+<tr>
+<td><a href="../studies/vbf_pair_definition/README.md">vbf_pair_definition</a></td>
+<td>which jets form the VBF pair</td>
+<td><code>compare_vbf_pair_definitions.py</code></td>
+</tr>
+<tr>
+<td><a href="../studies/vbf_cut_optimization/README.md">vbf_cut_optimization</a></td>
+<td>cut-based VBF selection</td>
+<td><code>optimize_vbf_cuts.py</code></td>
+</tr>
+<tr>
+<td><a href="../studies/flashsim/README.md">flashsim</a></td>
+<td>FlashSim vs FullSim</td>
+<td><code>compare_flashsim.py --input-base $HMUMU_HISTOGRAMS/all_variables/Central_hadded --run</code></td>
+</tr>
+<tr>
+<td><a href="../studies/muon_checks/README.md">muon_checks</a></td>
+<td>BSC χ², muon-SF gen matching</td>
+<td><code>check_bsc_chi2.py</code>, <code>check_w_ss_muon_genmatching.py</code></td>
+</tr>
+<tr>
+<td><code>ewk_lhe_mjj</code></td>
+<td>EWK Z generator cut LHE m(jj) &gt; 120 GeV</td>
+<td><code>build_lhe_mjj_map.py</code>, <code>lhe_mjj_shape.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>DNN studies, in detail:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ERAS</span><span class="o">=</span><span class="m">2022</span>,2022EE,2023,2023BPix,2025<span class="p">;</span><span class="w"> </span><span class="nv">RES</span><span class="o">=</span><span class="nv">$HMUMU_WWW</span>/&lt;topic&gt;/studies
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>binning<span class="w">     </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="w"> </span>--results-dir<span class="w"> </span><span class="nv">$RES</span><span class="w">   </span><span class="c1"># best cut and ≤5 bins</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>sensitivity<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="w"> </span>--results-dir<span class="w"> </span><span class="nv">$RES</span><span class="w">   </span><span class="c1"># significance vs number of bins</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>performance<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="w"> </span>--results-dir<span class="w"> </span><span class="nv">$RES</span><span class="w">   </span><span class="c1"># weighted vs dnn_vbf_dy_unweighted</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>roc<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="w"> </span>--results-dir<span class="w"> </span><span class="nv">$RES</span><span class="w"> </span>--roc-max-files<span class="w"> </span><span class="m">30</span><span class="w">   </span><span class="c1"># from the skims</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>studies<span class="w">     </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="w"> </span>--results-dir<span class="w"> </span><span class="nv">$RES</span><span class="w">   </span><span class="c1"># all four</span>
+<span class="c1"># the unweighted variant, for "performance":</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>submit-nondy<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="p">;</span><span class="w"> </span>./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>mirror-nondy<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span>
+./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>submit-dy<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span><span class="p">;</span><span class="w">    </span>./hmumu<span class="w"> </span>study<span class="w"> </span>dnn<span class="w"> </span>hadd<span class="w"> </span>--eras<span class="w"> </span><span class="nv">$ERAS</span>
+</code></pre></div>
+<p><code>--roc-max-files</code> is needed in practice (memory: 23 GB without, &lt; 2 GB with
+30); one era at a time, never together with other skim readers.</p>
+<p>A new study: <code>studies/&lt;name&gt;/</code> with <code>README.md</code> and a <code>run.sh</code>/<code>run.py</code> (so
+<code>./hmumu study &lt;name&gt;</code> finds it) or the command in the README; inputs through
+<code>common.paths.path(...)</code>; outputs to <code>results/</code> and <code>$HMUMU_WWW</code>.</p>
+<hr />
+<h2 id="13-synchronisation">13. Synchronisation<a class="headerlink" href="#13-synchronisation" title="Permanent link">&para;</a></h2>
+<p><code>sync/README.md</code> documents the tools; <code>./hmumu sync &lt;tool&gt;</code> lists them.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>sync/python/run_sync_skim.py<span class="w">                     </span><span class="c1"># print input, output, command</span>
+python3<span class="w"> </span>sync/python/run_sync_skim.py<span class="w"> </span>--run<span class="w">               </span><span class="c1"># one agreed NanoAOD file, nominal selection</span>
+python3<span class="w"> </span>sync/python/run_sync_skim.py<span class="w"> </span>--run<span class="w"> </span>--era<span class="w"> </span>Run3_2024<span class="w"> </span>--dataset<span class="w"> </span>KEY<span class="w"> </span>--input-file<span class="w"> </span>/path/file.root
+python3<span class="w"> </span>sync/python/export_event_list.py<span class="w"> </span>ours/H_sideband_events.jsonl<span class="w"> </span>--output<span class="w"> </span>ours/H_sideband_event_list.txt
+</code></pre></div>
+<p>Corrections and payloads used: <a href="../sync/">sync/index.md</a>; DY method:
+<a href="../sync/dy_reweighting/">sync/dy_reweighting.md</a>.</p>
+<hr />
+<h2 id="14-traps-and-troubleshooting">14. Traps and troubleshooting<a class="headerlink" href="#14-traps-and-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>symptom</th>
+<th>cause and fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hadd writes broken files, merged templates at ~50% of nominal</td>
+<td>a raw file truncated by EOS, or a stale hadd that lost a dataset: <code>check_templates.py --stage raw --quarantine</code>, resubmit, redo hadd and merge</td>
+</tr>
+<tr>
+<td><code>check --check-level root</code> never ends</td>
+<td>uproot hangs on a truncated file over EOS FUSE: use <code>check_templates.py</code></td>
+</tr>
+<tr>
+<td>hadd/merge-syst refuse to run</td>
+<td>datasets that cannot be produced (FlashSim in DNN campaigns, herwig without manifest): direct commands, 6.3</td>
+</tr>
+<tr>
+<td>builder refuses an era</td>
+<td>no merge receipt: <code>merge-syst</code>, or <code>--allow-unmerged</code> after the merged check</td>
+</tr>
+<tr>
+<td>DY histograms <code>STALE</code></td>
+<td>DY weights refitted: resubmit DY with <code>--force</code> (section 5)</td>
+</tr>
+<tr>
+<td>jobs held/removed after 8 h</td>
+<td><code>+JobFlavour = "tomorrow"</code>, <code>MaxRuntime 86400</code>, or <code>hmumu shard</code></td>
+</tr>
+<tr>
+<td><code>use of undeclared identifier 'genWeight'</code></td>
+<td>empty skim dataset (<code>Run3_2022/ZZto2Nu2Q_powheg</code>, ...): exclude it</td>
+</tr>
+<tr>
+<td>OOM on lxplus</td>
+<td>tools reading the skims with <code>AsNumpy</code>: one era, <code>--threads ≤ 4</code>, <code>--roc-max-files</code></td>
+</tr>
+<tr>
+<td><code>Unable to remove file for truncation</code> on EOS</td>
+<td>file owned by another user: write elsewhere</td>
+</tr>
+<tr>
+<td>toysFreq significance higher than expected</td>
+<td>the nuisances were fitted to the blinded SR: <code>--freq-mask '_srhi$'</code> or <code>SE_SIG_OPTS=""</code></td>
+</tr>
+<tr>
+<td>stat-only fit fails</td>
+<td><code>--robustFit</code> with only r floating, or r &lt; 0: <code>fit_suite.py</code> handles it (no robustFit, rMin 0)</td>
+</tr>
+<tr>
+<td>FitDiagnostics <code>--saveWithUncertainties</code> takes hours</td>
+<td>use <code>fit_shapes.py</code> (8.3)</td>
+</tr>
+<tr>
+<td>JES/JER templates pile into the first DNN bin</td>
+<td><code>dnn_vbf_weighted</code>: use <code>dnn_vbf_eta_regions_syst</code></td>
+</tr>
+<tr>
+<td>options changed on an existing output root</td>
+<td>timestamps do not record options: new <code>--output-dir</code> or <code>--force</code></td>
+</tr>
+<tr>
+<td>editing code while jobs run</td>
+<td>Condor jobs read the checkout live: do not edit or move files while a campaign of that checkout runs</td>
+</tr>
+<tr>
+<td>zsh <code>set -- $var</code> does not split words</td>
+<td>write multi-step loops as bash scripts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-where-things-are">15. Where things are<a class="headerlink" href="#15-where-things-are" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>what</th>
+<th>where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>templates</td>
+<td><code>$HMUMU_HISTOGRAMS/&lt;campaign&gt;/Hists_systMerged/Run3_&lt;era&gt;/</code></td>
+</tr>
+<tr>
+<td>DNN results, 7 eras, per variant</td>
+<td><code>combine/results_7eras_v2/{base,SRonly,DYscaleShapeOnly,CCCFFF}/&lt;model&gt;/</code> (corrected templates); <code>combine/results_signal_extended_7eras/</code> (old templates)</td>
+</tr>
+<tr>
+<td>fit matrix</td>
+<td><code>combine/results_fit_matrix_v2/</code> (corrected), <code>combine/results_fit_matrix/</code> (old); <code>SUMMARY.md</code> in each</td>
+</tr>
+<tr>
+<td>VBF selector EWK Z</td>
+<td><code>combine/results_vbf_selector_ewkz_syst/&lt;no_shape_systematics\|systematics&gt;/&lt;model&gt;/results.md</code></td>
+</tr>
+<tr>
+<td>fit plots</td>
+<td><code>$HMUMU_WWW/skim_v4/fits/fit_matrix/&lt;analysis&gt;/&lt;model&gt;/&lt;scope&gt;/&lt;mode&gt;/</code></td>
+</tr>
+<tr>
+<td>systematic plots</td>
+<td><code>$HMUMU_WWW/skim_v4/dnn/systematic_shapes/&lt;region&gt;/&lt;cat&gt;/</code></td>
+</tr>
+<tr>
+<td>results of the studies</td>
+<td><a href="../status/">status.md</a>, <code>combine/RESULTS.md</code>, <code>studies/*/README.md</code></td>
+</tr>
+<tr>
+<td>code map, tests, how to add a variable/systematic/campaign</td>
+<td><a href="../development/">development.md</a></td>
+</tr>
+<tr>
+<td>every histogram production and plot tree, with purpose and size</td>
+<td><a href="../inventario_istogrammi/">inventario_istogrammi.md</a></td>
+</tr>
+<tr>
+<td>old commands and reports</td>
+<td><code>combine/archive/</code>, <code>docs/archive/</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
