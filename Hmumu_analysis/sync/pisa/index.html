@@ -25,7 +25,7 @@
     
     
       
-        <title>Synchronization - H→μμ Run 3 — Analysis Documentation</title>
+        <title>Pisa - H→μμ Run 3 — Analysis Documentation</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Synchronization
+              Pisa
             
           </span>
         </div>
@@ -297,7 +297,7 @@
   <span class="md-ellipsis">
     
   
-    General workflow and Pisa
+    Pisa
   
 
     
@@ -315,7 +315,7 @@
   <span class="md-ellipsis">
     
   
-    General workflow and Pisa
+    Pisa
   
 
     
@@ -340,12 +340,6 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#scope-and-goals" class="md-nav__link"><span class="md-ellipsis">Scope and goals</span></a>
-</li>
-        <li class="md-nav__item">
-  <a href="#pisa-case-study" class="md-nav__link"><span class="md-ellipsis">Current case study: Pisa</span></a>
-</li>
         <li class="md-nav__item">
   <a href="#synchronization-procedure" class="md-nav__link">
     <span class="md-ellipsis">
@@ -493,12 +487,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#scope-and-goals" class="md-nav__link"><span class="md-ellipsis">Scope and goals</span></a>
-</li>
-        <li class="md-nav__item">
-  <a href="#pisa-case-study" class="md-nav__link"><span class="md-ellipsis">Current case study: Pisa</span></a>
-</li>
-        <li class="md-nav__item">
   <a href="#synchronization-procedure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -565,43 +553,9 @@
 
 
 
-<h1 id="analysis-synchronization">Analysis synchronization<a class="headerlink" href="#analysis-synchronization" title="Permanent link">&para;</a></h1>
-<p>Synchronization is the validation step used to establish that two independent
-analysis implementations select the same events, reconstruct the same physics
-objects and apply compatible event weights. The workflow below is general and
-can be reused for every external or internal comparison.</p>
-<h2 id="scope-and-goals">Scope and goals<a class="headerlink" href="#scope-and-goals" title="Permanent link">&para;</a></h2>
-<p>A synchronization should separate differences in the input sample from
-differences introduced by selections, object definitions, corrections or event
-weights. The comparison is complete when every relevant discrepancy is either
-removed or understood and documented.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>the exact same NanoAOD files and, for data, the same certified luminosity mask;</li>
-<li>a shared definition of triggers, physics objects, overlap removal and event selections;</li>
-<li>a common convention for systematic variations, normalization and event weights;</li>
-<li>event identifiers (<code>run:luminosityBlock:event</code>), cutflows and the main object-level variables in the output;</li>
-<li>the software versions, configuration tags and commands needed to reproduce both productions.</li>
-</ul>
-<h3 id="recommended-validation-order">Recommended validation order<a class="headerlink" href="#recommended-validation-order" title="Permanent link">&para;</a></h3>
-<ol>
-<li>confirm the number of input files and processed events;</li>
-<li>compare unweighted cutflows one selection at a time;</li>
-<li>match accepted events and inspect the first divergent selection for exclusive events;</li>
-<li>compare the multiplicity and kinematics of muons, electrons and jets;</li>
-<li>for simulation, validate generator and correction weights individually before the total weight;</li>
-<li>compare final categories, distributions and weighted yields.</li>
-</ol>
-<h3 id="required-output">Required output<a class="headerlink" href="#required-output" title="Permanent link">&para;</a></h3>
-<p>Each campaign should retain the input-file list, configuration or production
-tag, commands, cutflow tables, lists of common and exclusive events, comparison
-plots and a short explanation of every residual difference. Percent agreement
-alone is not sufficient: the origin and physics impact of the remaining
-differences must be recorded.</p>
-<h2 id="pisa-case-study">Current case study: Pisa<a class="headerlink" href="#pisa-case-study" title="Permanent link">&para;</a></h2>
+<h1 id="synchronization-with-pisa">Synchronization with Pisa<a class="headerlink" href="#synchronization-with-pisa" title="Permanent link">&para;</a></h1>
 <p>The TAMU and Pisa analyses were compared event by event for Run2024H data and
-for the 2024 VBFH simulated signal sample. The following sections document the
-concrete setup and results.</p>
+for the 2024 VBFH simulated signal sample.</p>
 <p><a class="md-button md-button--primary" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_20260925">Run2024H data plots</a>
 <a class="md-button" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_mc_vbfh">VBFH plots with generator weights</a>
 <a class="md-button" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_mc_vbfh_allweights">VBFH plots with all common weights</a></p>

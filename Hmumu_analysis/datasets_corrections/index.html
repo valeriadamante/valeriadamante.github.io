@@ -286,7 +286,7 @@
   <span class="md-ellipsis">
     
   
-    General workflow and Pisa
+    Pisa
   
 
     
@@ -414,12 +414,7 @@
       
     </span>
   </a>
-  <nav class="md-nav" aria-label="Analysis selections"><ul class="md-nav__list">
-    <li class="md-nav__item"><a href="#muon-correction-chain" class="md-nav__link"><span class="md-ellipsis">Muon correction chain</span></a></li>
-    <li class="md-nav__item"><a href="#selection-order-and-quantities" class="md-nav__link"><span class="md-ellipsis">Selection order and quantities</span></a></li>
-    <li class="md-nav__item"><a href="#muon-scale-factors" class="md-nav__link"><span class="md-ellipsis">Muon scale factors</span></a></li>
-    <li class="md-nav__item"><a href="#mass-regions-and-vbf" class="md-nav__link"><span class="md-ellipsis">Mass regions and VBF</span></a></li>
-  </ul></nav>
+  
 </li>
       
     </ul>
@@ -524,12 +519,7 @@
       
     </span>
   </a>
-  <nav class="md-nav" aria-label="Analysis selections"><ul class="md-nav__list">
-    <li class="md-nav__item"><a href="#muon-correction-chain" class="md-nav__link"><span class="md-ellipsis">Muon correction chain</span></a></li>
-    <li class="md-nav__item"><a href="#selection-order-and-quantities" class="md-nav__link"><span class="md-ellipsis">Selection order and quantities</span></a></li>
-    <li class="md-nav__item"><a href="#muon-scale-factors" class="md-nav__link"><span class="md-ellipsis">Muon scale factors</span></a></li>
-    <li class="md-nav__item"><a href="#mass-regions-and-vbf" class="md-nav__link"><span class="md-ellipsis">Mass regions and VBF</span></a></li>
-  </ul></nav>
+  
 </li>
       
     </ul>
@@ -579,106 +569,10 @@ points used for each data-taking period. It covers:</p>
 </ul>
 <p><a class="md-button md-button--primary" href="../reference/corrections.pdf">Open the correction inventory</a></p>
 <h2 id="analysis-selections">Analysis selections<a class="headerlink" href="#analysis-selections" title="Permanent link">&para;</a></h2>
-<p>This section separates the agreed prescription from the current implementation.
-Scale factors are evaluated on raw object quantities. Jet and MET selections
-use corrected quantities. The kinematic convention for muon and electron cuts
-is still to be decided; until that choice is frozen, both the current behavior
-and the open decision are stated explicitly below.</p>
-<h3 id="muon-correction-chain">Muon correction chain<a class="headerlink" href="#muon-correction-chain" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Input momentum choice.</strong> Both the standard NanoAOD momentum and
-the beam-spot-constrained (BSC) momentum are retained. For each muon, the BSC
-branch is selected when <code>Muon_bsConstrainedChi2 &lt; 30</code>; otherwise the
-standard NanoAOD branch is used.</li>
-<li><strong>ScaRe.</strong> The momentum scale correction is applied to data and MC;
-the resolution smearing is applied to MC. It is evaluated separately for the
-NanoAOD and BSC momentum branches, including the scale and resolution
-variations.</li>
-<li><strong>FSR recovery.</strong> The selected FSR-photon four-vector is added after
-ScaRe. The nominal analysis branch is <code>Muon_p4_FSR_corr</code> (and its
-<code>Muon_pt_FSR_corr</code> projection); shifted branches repeat the construction
-for each ScaRe scale/resolution variation.</li>
-<li><strong>Reconstructed quantities.</strong> ScaRe+FSR four-vectors are available
-for corrected muon ordering, $m_{\mu\mu}$, dimuon $p_T$ and the other dimuon
-observables. Whether the analysis $p_T$ cuts and ordering must use these
-corrected quantities or the raw quantities remains an explicit analysis choice.</li>
-</ol>
-<p><strong>Open selection decision.</strong> A single convention must still be chosen
-for every muon and electron kinematic cut: either raw quantities or the relevant
-corrected quantities. This decision must cover object acceptance, ordering,
-trigger-leg thresholds, the 30 GeV low-$p_T$ working-point switch and the
-electron veto, as well as whether mass-region cuts use a raw or corrected
-dimuon four-vector. It must then be applied consistently to the nominal selection
-and its systematic variations.</p>
-<p><strong>Current implementation.</strong> The skim-level good-muon mask and
-trigger-object matching currently use <code>Muon_pt_raw_noCorr</code>, before ScaRe
-and FSR. The corrected branch determines ordering, dimuon reconstruction and
-the downstream analysis thresholds. The electron veto currently uses raw
-NanoAOD electron kinematics. These are implementation facts, not yet the final
-analysis prescription.</p>
-<h3 id="selection-order-and-quantities">Selection order and quantities<a class="headerlink" href="#selection-order-and-quantities" title="Permanent link">&para;</a></h3>
-<table>
-<thead><tr><th>Order</th><th>Requirement</th><th>Quantity and decision status</th><th>Stage</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>Golden JSON (data) or orthogonal era split and generator filter definitions (MC)</td><td>event identifiers and generator information</td><td>skim</td></tr>
-<tr><td>2</td><td>Base MC weights</td><td>generator sign, luminosity, cross section and pile-up</td><td>skim; weight only</td></tr>
-<tr><td>3</td><td>Object corrections</td><td>ScaRe, then FSR for muons; JEC and JER for jets</td><td>skim</td></tr>
-<tr><td>4</td><td>MET filters and MET-dependent cuts</td><td>quality flags plus corrected MET quantities; corrected convention is fixed</td><td>skim/analysis</td></tr>
-<tr><td>5</td><td>HLT and trigger matching</td><td><code>HLT_IsoMu24</code>; the current offline $p_T&gt;26$ GeV and ΔR matching use the raw, non-FSR BSC/NanoAOD choice; final muon-cut convention pending</td><td>skim</td></tr>
-<tr><td>6</td><td>Good-muon mask</td><td>currently raw $p_T&gt;10$ GeV and $|\eta|&lt;2.4$, with medium ID and <code>pfIsoId &gt;= 2</code>; final kinematic convention pending</td><td>skim</td></tr>
-<tr><td>7</td><td>Muon multiplicity and ordering</td><td>exactly two good muons; currently ordered by ScaRe+FSR $p_T$; final ordering convention pending</td><td>skim</td></tr>
-<tr><td>8</td><td>Skim mass window</td><td>currently $50&lt;m_{\mu\mu}^{\mathrm{ScaRe+FSR}}&lt;200$ GeV; final raw/corrected dimuon convention pending</td><td>skim</td></tr>
-<tr><td>9</td><td>Electron veto</td><td>currently raw NanoAOD $p_T&gt;20$ GeV and $|\eta|&lt;2.5$, MVA Iso WP90; final kinematic convention pending</td><td>skim</td></tr>
-<tr><td>10</td><td>Muon SF definitions</td><td>MC only; detailed convention below; no event rejection</td><td>skim</td></tr>
-<tr><td>11</td><td>Jet selection</td><td>JEC/JER-corrected $p_T&gt;25$ GeV, $|\eta|&lt;4.7$, tight ID, veto-map/horn policy and ΔR(j,μ)&gt;0.4; corrected convention is fixed</td><td>skim/object definition</td></tr>
-<tr><td>12</td><td>Analysis muon selection</td><td>opposite charge; thresholds are 26/20 GeV and currently use ScaRe+FSR $p_T$; final kinematic convention pending</td><td>histograms</td></tr>
-<tr><td>13</td><td>Low-$p_T$ quality</td><td>below 30 GeV require tight ID and <code>pfIsoId &gt;= 4</code>; the raw/corrected quantity defining this boundary is pending</td><td>histograms</td></tr>
-<tr><td>14</td><td>b-jet veto</td><td>selected corrected jets within $|\eta|&lt;2.5$: zero medium and at most one loose tag</td><td>histograms</td></tr>
-<tr><td>15</td><td>Mass regions and categories</td><td>mass regions currently use ScaRe+FSR $m_{\mu\mu}$, pending the dimuon decision; VBF and jet categories use corrected selected jets</td><td>histograms</td></tr>
-</tbody>
-</table>
-<h3 id="muon-scale-factors">Muon scale factors: evaluation coordinates<a class="headerlink" href="#muon-scale-factors" title="Permanent link">&para;</a></h3>
-<p>The agreed prescription is that ID, isolation and single-muon-trigger SFs are
-evaluated on <strong>raw muon kinematics</strong>. ScaRe and FSR must not change the
-coordinates passed to the correctionlib payload, and ScaRe variations must not
-cause the efficiency SFs to be recomputed. The SFs affect only MC weights and
-do not reject events.</p>
-<p>The current lookup receives:</p>
-<ul>
-<li><strong>$p_T$:</strong> <code>mu{1,2}_pt_raw_noCorr</code>, i.e. the BSC/NanoAOD
-choice before ScaRe and before FSR;</li>
-<li><strong>η:</strong> <code>mu{1,2}_eta</code>, currently taken from the nominal
-ScaRe+FSR four-vector;</li>
-<li>the unmodified NanoAOD isolation and ID observables, trigger-match flag and
-event number required by the correction helper.</li>
-</ul>
-<p><strong>Implementation mismatch to resolve:</strong> the SF lookup presently has
-raw $p_T$ but corrected+FSR η. To satisfy the prescription, η must also be read
-from the raw muon coordinates. The lookup is not recomputed under the ScaRe
-shape variations. The ID/ISO lookup is applied above its payload threshold (15 GeV
-for 2022–2023BPix and 10 GeV for 2024–2025); the trigger lookup requires
-$p_T&gt;26$ GeV. Outside the valid selection the corresponding factor is unity.</p>
-<p>For 2022–2023BPix the nominal event weight uses Medium-ID and Loose-PF-isolation
-SFs for both muons. For 2024–2025 the selected SF working point is conditional:
-a muon below 30 GeV uses Tight-ID and Tight-PF-isolation SFs, while a
-higher-$p_T$ muon uses Medium-ID and Loose-PF-isolation SFs. Whether this
-working-point switch follows raw or corrected $p_T$ is part of the pending
-muon-selection decision. The
-event trigger factor is multiplied once, together with the two per-muon ID and
-isolation factors. Up/down ID, isolation and trigger variations replace only
-their corresponding factor. The current 2026 central weight is explicitly
-temporary and contains no muon ID, isolation or trigger SF because those
-columns are absent from the available 2026 DY skims.</p>
-<h3 id="mass-regions-and-vbf">Mass regions and VBF definition<a class="headerlink" href="#mass-regions-and-vbf" title="Permanent link">&para;</a></h3>
-<ul>
-<li>inclusive: $60&lt;m_{\mu\mu}&lt;150$ GeV;</li>
-<li>Z sideband: $70&lt;m_{\mu\mu}&lt;110$ GeV;</li>
-<li>signal fit: $115&lt;m_{\mu\mu}&lt;135$ GeV;</li>
-<li>Higgs sidebands: 110–115 or 135–150 GeV;</li>
-<li>VBF candidate: the selected jet pair with the largest $m_{jj}$, requiring
-$m_{jj}\geq400$ GeV and $|\Delta\eta_{jj}|\geq2.5$; the histogram-level VBF
-category additionally requires leading/subleading jet $p_T\geq35/25$ GeV.</li>
-</ul>
+<p>The selection reference summarizes the object definitions, event-quality
+requirements, trigger matching, mass regions and analysis categories used for
+the synchronization.</p>
+<p><a class="md-button" href="../reference/selections.pdf">Open the analysis-selection table</a></p>
 
 
 
