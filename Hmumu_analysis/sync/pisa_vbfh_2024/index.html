@@ -805,10 +805,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-inputs" class="md-nav__link">
+  <a href="#run2024h-data-synchronization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current inputs
+        Run2024H data synchronization
       
     </span>
   </a>
@@ -816,10 +816,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#event-by-event-result" class="md-nav__link">
+  <a href="#vbfh-2024-simulation-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Event-by-event result
+        VBFH 2024 simulation inputs
       
     </span>
   </a>
@@ -827,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#weight-comparison" class="md-nav__link">
+  <a href="#vbfh-event-by-event-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Weight comparison
+        VBFH event-by-event result
       
     </span>
   </a>
@@ -838,10 +838,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reproducing-the-comparison" class="md-nav__link">
+  <a href="#vbfh-weight-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reproducing the comparison
+        VBFH weight comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducing-the-vbfh-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducing the VBFH comparison
       
     </span>
   </a>
@@ -941,10 +952,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-inputs" class="md-nav__link">
+  <a href="#run2024h-data-synchronization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current inputs
+        Run2024H data synchronization
       
     </span>
   </a>
@@ -952,10 +963,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#event-by-event-result" class="md-nav__link">
+  <a href="#vbfh-2024-simulation-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Event-by-event result
+        VBFH 2024 simulation inputs
       
     </span>
   </a>
@@ -963,10 +974,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#weight-comparison" class="md-nav__link">
+  <a href="#vbfh-event-by-event-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Weight comparison
+        VBFH event-by-event result
       
     </span>
   </a>
@@ -974,10 +985,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reproducing-the-comparison" class="md-nav__link">
+  <a href="#vbfh-weight-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reproducing the comparison
+        VBFH weight comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducing-the-vbfh-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducing the VBFH comparison
       
     </span>
   </a>
@@ -1017,11 +1039,12 @@
 
 <h1 id="synchronization-with-pisa-vbfh-2024">Synchronization with Pisa: VBFH 2024<a class="headerlink" href="#synchronization-with-pisa-vbfh-2024" title="Permanent link">&para;</a></h1>
 <p>This page documents the synchronization tool implemented to compare the TAMU
-analysis with the Pisa analysis maintained by Filippo. The current MC study uses
-the 2024 VBFH signal sample in the VBF signal region,
-$115 &lt; m_{\mu\mu} &lt; 135$ GeV.</p>
-<p><a class="md-button" href="https://vdamante.web.cern.ch/H_mumu/skim_v4/studies/sync/filippo_mc_vbfh/">Open the unweighted/genWeight comparison</a>
-<a class="md-button md-button--primary" href="https://vdamante.web.cern.ch/H_mumu/skim_v4/studies/sync/filippo_mc_vbfh_allweights/">Open the comparison with all common weights</a></p>
+analysis with the Pisa analysis maintained by Filippo. It has been applied both
+to Run2024H data in the VBF Z-control/Higgs-sideband region and to the 2024 VBFH
+simulation in the VBF signal region, $115 &lt; m_{\mu\mu} &lt; 135$ GeV.</p>
+<p><a class="md-button md-button--primary" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_20260925">Open the Run2024H data comparison</a>
+<a class="md-button" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_mc_vbfh">Open the unweighted/genWeight comparison</a>
+<a class="md-button md-button--primary" href="https://vdamante.web.cern.ch/H_mumu/?dir=skim_v4%2Fstudies%2Fsync%2Ffilippo_mc_vbfh_allweights">Open the comparison with all common weights</a></p>
 <h2 id="what-the-tool-does">What the tool does<a class="headerlink" href="#what-the-tool-does" title="Permanent link">&para;</a></h2>
 <p>The synchronization is split into small tools that can also be run through
 <code>./hmumu sync &lt;tool&gt;</code>:</p>
@@ -1044,7 +1067,119 @@ $115 &lt; m_{\mu\mu} &lt; 135$ GeV.</p>
 <code>config/Run3_2024/selections_sync_filippo_20260925.yaml</code>. The comparison stops at
 Pisa's <code>HiggsMass</code> step: their following <code>MC_selection</code> is a random selection of
 approximately half of the events and has no equivalent in our analysis.</p>
-<h2 id="current-inputs">Current inputs<a class="headerlink" href="#current-inputs" title="Permanent link">&para;</a></h2>
+<h2 id="run2024h-data-synchronization">Run2024H data synchronization<a class="headerlink" href="#run2024h-data-synchronization" title="Permanent link">&para;</a></h2>
+<p>The data comparison uses the Muon0 and Muon1 Run2024H samples and the
+<code>VBF &amp;&amp; Z_CR_H_SB</code> selection. Both analyses start from the same events, and the
+matching is performed with <code>run:luminosityBlock:event</code>. No event weights are
+used for data.</p>
+<table>
+<thead>
+<tr>
+<th>selection result</th>
+<th style="text-align: right;">Muon0</th>
+<th style="text-align: right;">Muon1</th>
+<th style="text-align: right;">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selected by TAMU</td>
+<td style="text-align: right;">11,050</td>
+<td style="text-align: right;">11,108</td>
+<td style="text-align: right;"><strong>22,158</strong></td>
+</tr>
+<tr>
+<td>selected by Pisa</td>
+<td style="text-align: right;">10,990</td>
+<td style="text-align: right;">11,039</td>
+<td style="text-align: right;"><strong>22,029</strong></td>
+</tr>
+<tr>
+<td>selected by both</td>
+<td style="text-align: right;">10,963</td>
+<td style="text-align: right;">11,021</td>
+<td style="text-align: right;"><strong>21,984</strong></td>
+</tr>
+<tr>
+<td>TAMU only</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;"><strong>174</strong></td>
+</tr>
+<tr>
+<td>Pisa only</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;"><strong>45</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The common sample contains <strong>99.8% of the events selected by Pisa</strong>. The total
+selected yields differ by 0.6%, and 219 events differ in the union. Before the
+selection definitions were aligned, the dominant difference was the VBF-pair
+choice: Pisa used the two leading jets, <code>j0</code> and <code>j1</code>.</p>
+<p>All 219 residual events were inspected in the original NanoAOD. Their first
+identified causes are:</p>
+<table>
+<thead>
+<tr>
+<th>cause</th>
+<th style="text-align: right;">TAMU only</th>
+<th style="text-align: right;">Pisa only</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jet veto map in the b-jet veto</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>2024 JEC treatment for $2.0 &lt;</td>
+<td style="text-align: right;">\eta</td>
+<td style="text-align: right;">&lt; 2.5$</td>
+</tr>
+<tr>
+<td>veto-map treatment of the VBF jets</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>electrons with 10--15 GeV</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>FSR photon treatment</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>not yet explained</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td><strong>total</strong></td>
+<td style="text-align: right;"><strong>174</strong></td>
+<td style="text-align: right;"><strong>45</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The 17 public distributions compare TAMU and Pisa muon and VBF-jet kinematics.
+The ratios stay within 1--2% throughout. The main visible structure is a 2--3%
+excess around $|\eta(j_2)|=2.0$--2.5, associated with the different 2024 JEC
+treatment.</p>
+<p>The data production and comparison can be reproduced with:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
+./hmumu<span class="w"> </span>sync<span class="w"> </span>special_sync_submit<span class="w"> </span>--variant<span class="w"> </span>filippo_20260925
+./hmumu<span class="w"> </span>sync<span class="w"> </span>special_sync_merge<span class="w"> </span>--tag<span class="w"> </span>filippo_20260925
+./hmumu<span class="w"> </span>sync<span class="w"> </span>compare_filippo_diagnostic<span class="w"> </span>--tag<span class="w"> </span>filippo_20260925<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-dir<span class="w"> </span><span class="s2">"</span><span class="nv">$HMUMU_SYNC</span><span class="s2">/confronto_filippo_20260925"</span>
+./hmumu<span class="w"> </span>sync<span class="w"> </span>plot_filippo_comparison<span class="w"> </span>--tag<span class="w"> </span>filippo_20260925<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-dir<span class="w"> </span><span class="s2">"</span><span class="nv">$HMUMU_WWW</span><span class="s2">/skim_v4/studies/sync/filippo_20260925"</span>
+</code></pre></div>
+<h2 id="vbfh-2024-simulation-inputs">VBFH 2024 simulation inputs<a class="headerlink" href="#vbfh-2024-simulation-inputs" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1085,7 +1220,7 @@ approximately half of the events and has no equivalent in our analysis.</p>
 <code>VBFH-Hto2Mu_Par-M-125_TuneCP5_13p6TeV_powheg-pythia8</code>, called
 <code>VBFHto2Mu_M125_powheg</code> in this analysis. Results below were produced on
 7 October 2026.</p>
-<h2 id="event-by-event-result">Event-by-event result<a class="headerlink" href="#event-by-event-result" title="Permanent link">&para;</a></h2>
+<h2 id="vbfh-event-by-event-result">VBFH event-by-event result<a class="headerlink" href="#vbfh-event-by-event-result" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1124,7 +1259,7 @@ more events with at least two jets. Events migrate in both directions close to
 the 25/35 GeV jet thresholds and $m_{jj}=400$ GeV, consistently with different
 JER random seeds or jet definitions. Smaller differences come from the electron
 veto and migrations at the dimuon mass-window boundaries.</p>
-<h2 id="weight-comparison">Weight comparison<a class="headerlink" href="#weight-comparison" title="Permanent link">&para;</a></h2>
+<h2 id="vbfh-weight-comparison">VBFH weight comparison<a class="headerlink" href="#vbfh-weight-comparison" title="Permanent link">&para;</a></h2>
 <p>The common weight is</p>
 <div class="highlight"><pre><span></span><code>genWeight × pileup × muon ID/isolation SFs × trigger SF
 </code></pre></div>
@@ -1191,7 +1326,7 @@ yields are:</p>
 <p>Thus TAMU/Pisa is <strong>+0.4% with generator weights only</strong> and <strong>-1.4% with all
 common weights</strong>. The remaining weighted discrepancy is traced primarily to
 the muon ID/isolation and trigger scale factors.</p>
-<h2 id="reproducing-the-comparison">Reproducing the comparison<a class="headerlink" href="#reproducing-the-comparison" title="Permanent link">&para;</a></h2>
+<h2 id="reproducing-the-vbfh-comparison">Reproducing the VBFH comparison<a class="headerlink" href="#reproducing-the-vbfh-comparison" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>env.sh
 <span class="nv">FIL</span><span class="o">=</span><span class="s1">'/eos/home-f/fcattafe/Hmm_sync_valeria/hmm_2024Summer24_VBF-Hto2Mu_M-125_powheg_*_VBF_SignalRegion_diagnostic_ntuples.root'</span>
 <span class="nv">OUT</span><span class="o">=</span><span class="nv">$HMUMU_SYNC</span>/confronto_filippo_mc_vbfh
